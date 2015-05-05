@@ -1,6 +1,10 @@
 package agent;
+
+import communication.*;
+import domain.*;
 import environment.*;
-import java.util.ArrayList;
+import planner.*;
+import utils.*;
 
 public abstract class IntelligentAgent {
 
@@ -8,9 +12,9 @@ public abstract class IntelligentAgent {
 
     private Environment environment;
 
-    private ArrayList<AgentGoal> goals;
+    private List<Goal> goals;
 
-    public IntelligentAgent(String identifier, Environment environment, ArrayList<AgentGoal> goals) {
+    public IntelligentAgent(String identifier, Environment environment, List<Goal> goals) {
         this.identifier = identifier;
         this.environment = environment;
         this.goals = goals;
@@ -19,41 +23,49 @@ public abstract class IntelligentAgent {
     }
 
     // Situated
-    protected abstract ArrayList<Percept> sensor(Environment environment);
+    protected abstract List<Percept> sensor(Environment environment);
 
     // Reactive & Proactive
-    protected abstract ArrayList<AgentGoal> refine(ArrayList<Percept> percepts, ArrayList<AgentGoal> goals);
+    protected abstract List<Goal> refine(List<Percept> percepts, List<Goal> goals);
 
     // Flexible
-    protected abstract ArrayList<AgentAction> decide(ArrayList<AgentGoal> goals);
+    protected abstract List<Action> decide(List<Goal> goals);
 
     // Autonomous
-    protected abstract void act(Environment environment, ArrayList<AgentAction> actions);
+    protected abstract void act(Environment environment, List<Action> actions);
 
     private void raise() {
         final Thread behavior =
             new Thread(
                 new Runnable() {
                     public void run() {
-                        while(true) {
-                            try {
-
-                                ArrayList<Percept> percepts = sensor(environment);
-                                goals = refine(percepts, goals);
-
-                                ArrayList<AgentAction> actions = decide(goals);
-                                act(environment, actions);
-
-                            } catch (Exception exception) {
-                                System.out.println(exception.toString());
-                                // Robust
-                            }
-                        }
+                        
+                        // Execution cycle
+                        while(true) 
+                            execution();
+                                        
                     }
                 }
             );
 
         behavior.start();
+    }
+    
+    private void execution() {
+        try {
+
+            List<Percept> percepts = sensor(environment);
+            goals = refine(percepts, goals);
+
+            List<Action> actions = decide(goals);
+            act(environment, actions);
+
+        } catch (Exception exception) {
+
+            // Robust
+            System.out.println(exception.toString());
+            
+        }
     }
 
     public String toString() {
