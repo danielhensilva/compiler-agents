@@ -9,15 +9,3 @@ public class Scene {
 	private SceneCatastrophe catastrophe;
 	
 }
-
-class SceneObjective {
-	
-}
-
-class SceneConflict {
-	
-}
-
-class SceneCatastrophe {
-	
-}
