@@ -16,7 +16,7 @@ public class Relation<T> {
 		this.dependencies = dependencies;
 	}
 	
-	private void addDependency(T dependency) {
+	public void add(T dependency) {
 		this.dependencies.add(dependency);
 	}
 }
