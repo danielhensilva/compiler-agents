@@ -36,18 +36,11 @@ public abstract class IntelligentAgent {
 
     private void raise() {
         final Thread behavior =
-            new Thread(
-                new Runnable() {
-                    public void run() {
-                        
-                        // Execution cycle
-                        while(true) 
-                            execution();
-                                        
-                    }
-                }
-            );
-
+            new Thread(() -> {
+                // Execution cycle
+                while (true)
+                    execution();
+            });
         behavior.start();
     }
     
@@ -61,10 +54,8 @@ public abstract class IntelligentAgent {
             act(environment, actions);
 
         } catch (Exception exception) {
-
             // Robust
             System.out.println(exception.toString());
-            
         }
     }
 

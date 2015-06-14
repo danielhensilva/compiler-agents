@@ -14,5 +14,9 @@ public class List<T> {
 		this.array.add(element);
 		return this;
 	}
+
+	public T[] get() {
+		return (T[])this.array.toArray();
+	}
 	
 }
