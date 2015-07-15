@@ -1,5 +1,5 @@
-package domain;
+package domain.scene;
 
 public class SceneCatastrophe {
-	
+
 }
