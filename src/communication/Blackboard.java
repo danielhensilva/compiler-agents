@@ -6,8 +6,9 @@ public class Blackboard {
 
     private Story story;
 
-    private List<ObserverAgent> observers;
+    private Knowledge knowledge;
 
+    private List<ObserverAgent> observers;
 
     public Blackboard() {
         this.story = new Story();
@@ -18,31 +19,12 @@ public class Blackboard {
         this.story.createStep();
     }
 
-    public void pushKnowledgeBase() {
+    public void pushToKnowledge(Knowledge knowledge) {
+        this.knowledge = knowledge;
     }
 
-    public void pushObjective(Objective objective) {
-        this.story.getCurrentStep().setObjective(objective);
-    }
-
-    public void pushConflict(Conlict conflict) {
-        this.story.getCurrentStep().setOConflict(conflict);
-    }
-
-    public void pushCatastrophe(Catastrophe catastrophe) {
-        this.story.getCurrentStep().setCatastrophe(catastrophe);
-    }
-
-    public void pushReaction(Objective objective) {
-        this.story.getCurrentStep().setObjective(objective);
-    }
-
-    public void pushDilemma(Objective objective) {
-        this.story.getCurrentStep().setObjective(objective);
-    }
-
-    public void pushDecision(Objective objective) {
-        this.story.getCurrentStep().setObjective(objective);
+    public void pushToStory(Object object) {
+        this.story.push(object);
     }
 
     public void addObserver(ObserverAgent observer) {

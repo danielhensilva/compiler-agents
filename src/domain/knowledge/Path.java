@@ -4,11 +4,11 @@ public class Path {
 
     private String answer;
 
-    private Topic topic;
+    private Knowledge knowledge;
 
-    public Path(String answer, Topic topic) {
+    public Path(String answer, Knowledge knowledge) {
         this.answer = answer;
-        this.topic = topic;
+        this.knowledge = knowledge;
     }
 
 }

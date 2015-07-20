@@ -1,6 +1,6 @@
 package knowledge;
 
-public class Topic {
+public class Knowledge {
 
     private String title;
 
@@ -10,7 +10,7 @@ public class Topic {
 
     private List<Path> paths;
 
-    public Topic(String title, String body, String question) {
+    public Knowledge(String title, String body, String question) {
         this.title = title;
         this.body = body;
         this.question = question;
