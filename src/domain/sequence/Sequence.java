@@ -2,10 +2,10 @@ package domain.sequence;
 
 public class Sequence {
 
-	private SequenceReaction reaction;
+	private Reaction reaction;
 
-	private SequenceDilemma dilemma;
+	private Dilemma dilemma;
 
-	private SequenceDecision decision;
+	private Decision decision;
 
 }

@@ -6,10 +6,10 @@ import environment.*;
 import planner.*;
 import utils.*;
 
-public abstract class IntelligentAgent {
+public abstract class IntelligentAgent : ObserverAgent {
 
     /*
-    BDI-interpreter
+    Procedural Reasoning System (Georgeff and Lansky ~86)
     ---------------
     initialize-state();
     repeat
@@ -23,36 +23,40 @@ public abstract class IntelligentAgent {
     end repeat
     */
 
+    protected List<Belief> beliefs;
+
+    protected List<Desire> desires;
+
+    protected List<Intention> intentions;
+
     public IntelligentAgent() {
-
+        this.beliefs = new List<>();
+        this.desires = new List<>();
+        this.intentions = new List<>();
     }
 
-    public void inializeState() {
+    public abstract List<Belief> sensor(Blackboard blackboard);
 
-    }
+    public abstract List<Desire> deliberate(List<Belief> beliefs);
 
-    public List<Option> generateOptions(Percepts percept) {
-
-    }
-
-    public List<SelectedOption> deliberate(List<Option> options) {
-
-    }
+    public abstract List<Intention> plan(List<Desire> desires);
 
     public void Execute() {
 
     }
 
-    public List<Percepts> getNewExternalPercepts() {
+    public List<Percept> getNewExternalPercepts() {
 
     }
 
-    public void DropSucessfulAttitudes() {
+    public void dropSucessfulAttitudes() {
 
     }
 
-    public void DropImpossibleAttitudes() {
+    public void dropImpossibleAttitudes() {
 
     }
-    
+
+    public abstract notify(EventType eventType);
+
 }
