@@ -1,6 +1,6 @@
 package planner;
 
-import environment.*;
+import domain.*;
 
 public abstract class Intention {
 
@@ -8,13 +8,13 @@ public abstract class Intention {
 
     private Desire target;
 
-    public Plan(String name, Desire target) {
+    public Intention(String name, Desire target) {
         this.name = name;
         this.target = target;
     }
 
     public abstract Boolean isApplicable(Belief[] beliefs);
 
-    public abstract Action[] getSteps();
+public abstract Action[] getSteps();
 
 }

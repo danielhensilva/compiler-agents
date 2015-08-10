@@ -1,6 +1,12 @@
 package communication;
 
+import agent.*;
 import domain.*;
+import domain.knowledge.*;
+import domain.scene.*;
+import domain.sequence.*;
+import planner.*;
+import utils.*;
 
 public class Blackboard {
 

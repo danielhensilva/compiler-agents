@@ -1,6 +1,9 @@
 package domain;
 
 import utils.*;
+import domain.*;
+import domain.scene.*;
+import domain.sequence.*;
 
 public class Story {
 
@@ -17,35 +20,35 @@ public class Story {
 		this.steps.add(scene, sequence);
 	}
 
-	public PairList<Scene, Sequence> getCurrentStep() {
+	public Pair<Scene, Sequence> getCurrentStep() {
 		return this.steps.getLast();
 	}
 
 	public void push(Object object) {
-		PairList<Scene, Sequence> step = this.getCurrentStep();
+		Pair<Scene, Sequence> step = this.getCurrentStep();
 
 		Scene scene = step.getLeft();
 		Sequence sequence = step.getRight();
 
-		if (object instanceOf Objective)
+		if (object instanceof Objective)
 			scene.setObjective((Objective) object);
 
-		else if (object instanceOf Conflict)
+		else if (object instanceof Conflict)
 			scene.setConflict((Conflict) object);
 
-		else if (object instanceOf Catastrophe)
-			scene.setCatastrophe((Catastrophe) object)
+		else if (object instanceof Catastrophe)
+			scene.setCatastrophe((Catastrophe) object);
 
-		else if (object instanceOf Reaction)
+		else if (object instanceof Reaction)
 			sequence.setReaction((Reaction) object);
 
-		else if (object instanceOf Dilemma)
+		else if (object instanceof Dilemma)
 			sequence.setDilemma((Dilemma) object);
 
-		else if (object instanceOf Decision)
+		else if (object instanceof Decision)
 			sequence.setDecision((Decision) object);
 
 		else
-			throw new Exception("Unexpected story item.");
+			throw new RuntimeException("Unexpected story item.");
 	}
 }

@@ -1,7 +1,9 @@
 package agent;
 
+import communication.*;
+
 public interface ObserverAgent {
 
-    public void notify(EventType eventType);
+    void notify(EventType eventType);
 
 }

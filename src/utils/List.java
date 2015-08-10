@@ -1,8 +1,8 @@
 package utils;
 
-import java.util.ArrayList;
+import java.util.*;
 
-public class List<T> {
+public class List<T> implements Iterable<T> {
 
 	private ArrayList<T> array;
 
@@ -15,6 +15,12 @@ public class List<T> {
 		return this;
 	}
 
+    public Iterator<T> iterator() {
+        Iterator<T> iterator = this.array.iterator();
+        return new ListIterator<T>(iterator);
+    }
+
+    @SuppressWarnings("unchecked")
 	public T[] get() {
 		return (T[])this.array.toArray();
 	}

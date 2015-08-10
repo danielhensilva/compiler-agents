@@ -1,4 +1,4 @@
-package domain.planner;
+package planner;
 
 public abstract class Action {
 

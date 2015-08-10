@@ -2,11 +2,10 @@ package agent;
 
 import communication.*;
 import domain.*;
-import environment.*;
 import planner.*;
 import utils.*;
 
-public abstract class IntelligentAgent : ObserverAgent {
+public abstract class IntelligentAgent implements ObserverAgent {
 
     /*
     Procedural Reasoning System (Georgeff and Lansky ~86)
@@ -46,7 +45,7 @@ public abstract class IntelligentAgent : ObserverAgent {
     }
 
     public List<Percept> getNewExternalPercepts() {
-
+        return null;
     }
 
     public void dropSucessfulAttitudes() {
@@ -57,6 +56,6 @@ public abstract class IntelligentAgent : ObserverAgent {
 
     }
 
-    public abstract notify(EventType eventType);
+    public abstract void notify(EventType eventType);
 
 }

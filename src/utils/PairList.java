@@ -18,6 +18,6 @@ public class PairList<T1, T2> {
 	}
 
 	public Pair<T1, T2> getLast() {
-		return this.pairs.getLast();
+		return this.pairs.getLastItem();
 	}
 }

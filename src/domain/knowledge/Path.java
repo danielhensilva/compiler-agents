@@ -1,4 +1,4 @@
-package knowledge;
+package domain.knowledge;
 
 public class Path {
 

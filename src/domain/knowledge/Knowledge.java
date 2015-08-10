@@ -1,4 +1,6 @@
-package knowledge;
+package domain.knowledge;
+
+import utils.*;
 
 public class Knowledge {
 
