@@ -1,0 +1,7 @@
+OBJETIVO conteúdo técnico
+
+CENA 1
+    LOCAL biblioteca
+    PERSONAGEM engenheiro de software
+    APRESENTAÇÃO Fubã estava
+    DESAFIO
