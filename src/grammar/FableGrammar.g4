@@ -1,5 +1,8 @@
 grammar FableGrammar;
 
+
+
+
 LOCAL   :   'LOCAL:'[ a-zA-Z0-9]+
         ;
 

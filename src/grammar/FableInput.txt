@@ -1,7 +1,144 @@
-OBJETIVO conte�do t�cnico
+CONHECIMENTO ConhecimentoStrings (
+    DESCRICAO "Strings são tradicionalmente um tipo de dado para armazenar sequências de caracteres (ou palavras)...",
+    QUESTAO "O que são Strings?" (
+        RESPOSTA "Estrutura de dados do tipo vetor para armazenar sequência de caracteres.",
+        ALTERNATIVA "Variável para armazenar palavras.",
+        DESCONHECE "Não sabe",
+    )
+),
 
-CENA 1
-    LOCAL biblioteca
-    PERSONAGEM engenheiro de software
-    APRESENTA��O Fub� estava
-    DESAFIO
+CONHECIMENTO ConhecimentoArquivos (
+    DESCRICAO "Arquivos são estruturas de dados acessados por programas como uma forma durável de...",
+    REQUISITO (
+        ConhecimentoStrings
+    ),
+    PERGUNTA "O que é um arquivo?" (
+        RESPOSTA "Forma de armazenamento durável",
+        ALTERNATIVA "Estrutura de controle do SO",
+        DESCONHECE "Não sabe",
+    ),
+),
+
+CONHECIMENTO ConhecimentoCompilacaoDaLinguagemCMaisMais (
+    DESCRICAO "Para criar o primeiro programa em C++, deve-se primeiramente abrir o editor de textos à sua preferência e...",
+    PERGUNTA "O que é um programa C++ deve minimamente possuir?" (
+        RESPOSTA "Função de entrada main():int",
+        ALTERNATIVA "Referência ao iostream.h",
+        ALTERNATIVA "A definição de um objeto",
+        DESCONHECE "Não sabe"
+    ),
+),
+
+CONHECIMENTO ConhecimentoFuncaoDeOrdenacao (
+    DESCRICAO "A partir do C++ 11 está disponível na biblioteca padrão a função sort, que recebe...",
+    REQUISITO (
+        ConhecimentoLinguagemCMaisMais,
+        ConhecimentoBibliotecaPadrao,
+    ),
+    PERGUNTA "O que faz a função std:sort(vBegin, vEnd)?" (
+        RESPOSTA "Ordena valores",
+        ALTERNATIVA "Sorteia algum número aleatório",
+        DESCONHECE "Não sabe",
+    ),
+),
+
+CONHECIMENTO ConhecimentoLeituraDeArquivos (
+    DESCRICAO "Em C++, a entrada e saída de arquivos é feita utilizando, respectivamente, as classes ifstream e ofstream da biblioteca iostream.h, cuja...",
+    REQUISITO (
+        ConhecimentoLinguagemCMaisMais,
+    ),
+    PERGUNTA "Qual é a classe que efetua a leitura do arquivo?" (
+        RESPOSTA "iostream:ifstream",
+        ALTERNATIVA "iostream:ofstream",
+        DESCONHECE "Não sabe",
+    ),
+),
+
+CONHECIMENTO ConhecimentoEntradaESaidaDoConsole (
+    DESCRICAO "Interagir com o terminal do sistema operacional é uma atividade comum na vida de programadores, por isso a...",
+    REQUISITO (
+        ConhecimentoLinguagemCMaisMais,
+    ),
+    PERGUNTA "Qual comando permite a leitura da entrada do usuário?" (
+        RESPOSTA "cin >> variavel",
+        ALTERNATIVA "cout << variavel",
+        DESCONHECE "Não sabe",
+    ),
+),
+
+CONHECIMENTO ConhecimentoLinguagemCMaisMais (
+    DESCRICAO "Em 1985 Bjarne Stroustrup criou uma linguagem de propósito geral baseada na flexibilidade e performance de..."
+    REQUISITO (
+        ConhecimentoCompilacaoDaLinguagemCMaisMais,
+        ConhecimentoEntradaESaidaDoConsole,
+    ),
+    PERGUNTA "O que é C++?" (
+        RESPOSTA "Linguagem de programação influenciada por C",
+        ALTERNATIVA "Extensão da linguagem C",
+        ALTERNATIVA "Programa de computador",
+        DESCONHECE "Não sabe",
+    ),
+),
+
+INICIO (
+    DESCRICAO "Um aluno concluíra mais um semestre em Ciência da Computação. Dado o volume de arquivos e trabalhos acadêmicos que ele acumulou, teve a vontade de facilitar futuras consultas ao material. Lembrava-se de um livro chamado Programando em C++ que poderia ajudar.",
+    CONHECIMENTO (
+        ConhecimentoLinguagemCMaisMais,
+        ConhecimentoArquivos,
+        ConhecimentoFuncaoDeOrdenacao,
+        ConhecimentoLeituraDeArquivos,
+    ),
+),
+
+CENA (
+    DESCRICAO "Bastava apenas uma consulta na introdução do livro que já poderia ser suficiente definir a linguagem de programação C++.",
+    CONHECIMENTO (
+        ConhecimentoLinguagemCMaisMais,
+    ),
+),
+
+CENA (
+    DESCRICAO "O aluno poucas vezes precisou mexer no console de seu computador. Era sempre preferível usar o ambiente gráfico, mas com o livro em mãos, o capítulo de manipulação pelo console não era tão grande, enquanto que o de criação do ambiente gráfico nem estava descrito no livro. O aluno, impaciente, decidiu por usar o console mesmo, pois não era necessário nada de muito sofisticado para a sua necessidade.",
+    CONHECIMENTO (
+        ConhecimentoEntradaESaidaDoConsole,
+    ),
+),
+
+CENA (
+    DESCRICAO "Era o momento para consultar aquele enorme livro de programação mais uma vez. Ler arquivos não poderia ser difícil, pensou o aluno enquanto observava o sumário e procurava o capítulo certo.",
+    CONHECIMENTO (
+        ConhecimentoLeituraDeArquivos,
+    ),
+),
+
+CENA (
+    DESCRICAO "O aluno procurou pelo livro Programando em C++ e folheou até encontrar alguma coisa relevante sobre ordenação.",
+    CONHECIMENTO (
+        ConhecimentoFuncaoDeOrdenacao,
+    ),
+),
+
+CENA (
+    DESCRICAO "Compilação era uma palavra conhecida ao aluno. O que lhe faltava eram elementos específicos da linguagem C++. Assim, o aluno correu para o laboratório e consultou o Google por alguma rápida referência de como compilar um código fonte.",
+    CONHECIMENTO (
+        ConhecimentoCompilacaoDaLinguagemCMaisMais,
+    ),
+),
+
+CENA (
+    DESCRICAO "Mais uma vez, o aluno não conseguia buscar em sua memória quaisquer fundamentos sólidos sobre computação. Para arquivos, tudo que ele sabia era dar dois cliques com o mouse e magicamente o conteúdo aparecer no seu desktop. Talvez ele nunca tenha se perguntado como isso de fato funcionava. Era um oportunidade para rever o seu caderno da disciplina de sistema operacionais.",
+    CONHECIMENTO (
+        ConhecimentoArquivos,
+    ),
+),
+
+CENA (
+    DESCRICAO "O aluno sabia o que era Strings, pois o seu professor já tinha explicado algumas vezes.",
+    CONHECIMENTO (
+        ConhecimentoStrings,
+    ),
+),
+
+TERMINO (
+    DESCRICAO "Agora que o aluno compreendeu os fundamentos necessários para a construção do programa que tanto tinha vontade de fazer, ele arregaçou as mangas e começou a escrever o código-fonte.",
+),
