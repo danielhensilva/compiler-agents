@@ -1,10 +1,9 @@
 @echo off
 
-cls
+SET CLASSPATH=;C:\Projects\Public\compiler-agents\lib\antlr-4.5.1-complete.jar;%CLASSPATH%
 
-SET CLASSPATH=.;..\lib\antlr-4.5-complete.jar
+pushd src\grammar
+java org.antlr.v4.Tool FableGrammar.g4
+popd
 
-doskey antlr4=java org.antlr.v4.Tool $*
-doskey grun=java org.antlr.v4.runtime.misc.TestRig $*
-
-javac -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/knowledge/*.java src/domain/scene/*.java src/domain/sequence/*.java src/domain/*.java src/planner/*.java src/ui/*.java src/utils/*.java src/Main.java
+javac -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/knowledge/*.java src/domain/scene/*.java src/domain/sequence/*.java src/domain/*.java src/grammar/*.java src/planner/*.java src/ui/*.java src/utils/*.java src/Main.java
