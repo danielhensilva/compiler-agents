@@ -22,6 +22,7 @@ public class Main {
             Integer answer = new ProgramEvaluator().visit(parser.start());
         }
         catch (Exception exception) {
+            System.out.printf("Exception : " + exception.toString());
         }
     }
 

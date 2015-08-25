@@ -9,7 +9,7 @@ popd
 
 del /S /Q %binPath%
 
-javac -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/knowledge/*.java src/domain/scene/*.java src/domain/sequence/*.java src/domain/*.java src/grammar/*.java src/planner/*.java src/ui/*.java src/utils/*.java src/Main.java
+javac -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/grammar/*.java src/domain/knowledge/*.java src/domain/scene/*.java src/domain/sequence/*.java src/domain/*.java src/grammar/*.java src/planner/*.java src/ui/*.java src/utils/*.java src/Main.java
 
 pushd bin
 java Main
