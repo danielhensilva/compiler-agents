@@ -13,10 +13,15 @@ public class Main {
         // String expression = "(10 + 3) * 3";
         // ExpressionsLexer lexer = new ExpressionsLexer(new ANTLRInputStream(expression));
         // ExpressionsParser parser = new ExpressionsParser(new CommonTokenStream(lexer));
-        // Integer answer = new ProgramEval().visit(parser.start());
+        //
         // System.out.printf("%s = %s\n", expression, answer);
         try {
-            System.out.printf(readFableInput());
+            String input = readFableInput();
+            ExpressionsLexer lexer = new ExpressionsLexer(new ANTLRInputStream(expression));
+            ExpressionsParser parser = new ExpressionsParser(new CommonTokenStream(lexer));
+            Integer answer = new ProgramEvaluator().visit(parser.start());
+        }
+        catch (Exception exception) {
         }
     }
 
