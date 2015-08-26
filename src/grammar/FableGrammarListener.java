@@ -58,26 +58,6 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 */
 	void exitAssociation(FableGrammarParser.AssociationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#start}.
-	 * @param ctx the parse tree
-	 */
-	void enterStart(FableGrammarParser.StartContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#start}.
-	 * @param ctx the parse tree
-	 */
-	void exitStart(FableGrammarParser.StartContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#end}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnd(FableGrammarParser.EndContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#end}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnd(FableGrammarParser.EndContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#description}.
 	 * @param ctx the parse tree
 	 */

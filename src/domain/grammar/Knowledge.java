@@ -2,12 +2,21 @@ package domain.grammar;
 
 public class Knowledge {
 
+    private String identifier;
+
     private String description;
 
-    private Question question;
+    private Evaluation evaluation;
 
     public Knowledge() {
+    }
 
+    public String getIdentifier() {
+        return this.identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
     public String getDescription() {
@@ -18,11 +27,11 @@ public class Knowledge {
         this.description = description;
     }
 
-    public Question getQuestion() {
-        return this.question;
+    public Evaluation getEvaluation() {
+        return this.evaluation;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setEvaluation(Evaluation evaluation) {
+        this.evaluation = evaluation;
     }
 }

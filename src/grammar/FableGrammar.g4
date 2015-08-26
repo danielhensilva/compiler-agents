@@ -7,9 +7,6 @@ scene : 'CENA' '(' description association? ')' ',' ;
 requirement : 'REQUISITO' '(' (ident ',')+ ')' ;
 association : 'ASSOCIACAO' '(' (ident ',')+ ')' ;
 
-start : 'INICIO' '(' description association ')' ',' ;
-end : 'TERMINO' '(' description ')' ;
-
 description : 'DESCRICAO' string ',' ;
 answer : 'RESPOSTA' string ',' ;
 option : 'ALTERNATIVA' string ',' ;

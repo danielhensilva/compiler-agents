@@ -41,18 +41,6 @@ public interface FableGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssociation(FableGrammarParser.AssociationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link FableGrammarParser#start}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStart(FableGrammarParser.StartContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link FableGrammarParser#end}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnd(FableGrammarParser.EndContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link FableGrammarParser#description}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

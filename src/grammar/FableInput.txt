@@ -80,7 +80,7 @@ CONHECIMENTO ConhecimentoLinguagemCMaisMais (
     ),
 ),
 
-INICIO (
+CENA (
     DESCRICAO "Um aluno concluíra mais um semestre em Ciência da Computação. Dado o volume de arquivos e trabalhos acadêmicos que ele acumulou, teve a vontade de facilitar futuras consultas ao material. Lembrava-se de um livro chamado Programando em C++ que poderia ajudar.",
     ASSOCIACAO (
         ConhecimentoLinguagemCMaisMais,
@@ -139,6 +139,6 @@ CENA (
     ),
 ),
 
-TERMINO (
+CENA (
     DESCRICAO "Agora que o aluno compreendeu os fundamentos necessários para a construção do programa que tanto tinha vontade de fazer, ele arregaçou as mangas e começou a escrever o código-fonte.",
 ),

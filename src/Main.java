@@ -1,5 +1,8 @@
 import java.io.*;
-
+import org.antlr.v4.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 import domain.*;
 import grammar.*;
 
@@ -10,16 +13,13 @@ public class Main {
         // http://www.antlr.org/api/Java/index.html
         // http://docs.oracle.com/javase/8/docs/
 
-        // String expression = "(10 + 3) * 3";
-        // ExpressionsLexer lexer = new ExpressionsLexer(new ANTLRInputStream(expression));
-        // ExpressionsParser parser = new ExpressionsParser(new CommonTokenStream(lexer));
-        //
-        // System.out.printf("%s = %s\n", expression, answer);
         try {
             String input = readFableInput();
-            ExpressionsLexer lexer = new ExpressionsLexer(new ANTLRInputStream(expression));
-            ExpressionsParser parser = new ExpressionsParser(new CommonTokenStream(lexer));
-            Integer answer = new ProgramEvaluator().visit(parser.start());
+            FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRInputStream(input));
+            FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
+
+            // Integer answer = new ProgramEvaluator().visit(parser.start());
+            
         }
         catch (Exception exception) {
             System.out.printf("Exception : " + exception.toString());
