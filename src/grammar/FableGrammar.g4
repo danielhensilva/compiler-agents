@@ -1,8 +1,10 @@
 grammar FableGrammar;
 
+fable : 'FABULA' ident '(' ( knowledge | scene )+ ')' ;
+
 knowledge : 'CONHECIMENTO' ident '(' description? requirement? question ')' ',' ;
 question : 'PERGUNTA' string '(' answer option+ unknown ')' ',' ;
-scene : 'CENA' '(' description association? ')' ',' ;
+scene : 'CENA' ident '(' description association? ')' ',' ;
 
 requirement : 'REQUISITO' '(' (ident ',')+ ')' ;
 association : 'ASSOCIACAO' '(' (ident ',')+ ')' ;
