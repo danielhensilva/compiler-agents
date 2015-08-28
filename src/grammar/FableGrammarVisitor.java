@@ -11,6 +11,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface FableGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link FableGrammarParser#fable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFable(FableGrammarParser.FableContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link FableGrammarParser#knowledge}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

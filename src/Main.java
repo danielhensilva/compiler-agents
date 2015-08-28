@@ -18,8 +18,7 @@ public class Main {
             FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRInputStream(input));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
 
-            // Integer answer = new ProgramEvaluator().visit(parser.start());
-            
+            Integer answer = new FableEvaluator().visit(parser.start());
         }
         catch (Exception exception) {
             System.out.printf("Exception : " + exception.toString());

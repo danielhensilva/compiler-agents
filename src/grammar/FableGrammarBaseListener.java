@@ -16,6 +16,18 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFable(FableGrammarParser.FableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFable(FableGrammarParser.FableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterKnowledge(FableGrammarParser.KnowledgeContext ctx) { }
 	/**
 	 * {@inheritDoc}

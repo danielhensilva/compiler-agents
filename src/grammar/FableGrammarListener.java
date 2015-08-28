@@ -8,6 +8,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface FableGrammarListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#fable}.
+	 * @param ctx the parse tree
+	 */
+	void enterFable(FableGrammarParser.FableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#fable}.
+	 * @param ctx the parse tree
+	 */
+	void exitFable(FableGrammarParser.FableContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#knowledge}.
 	 * @param ctx the parse tree
 	 */
