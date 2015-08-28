@@ -17,10 +17,10 @@ public class Main {
             FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRInputStream(input));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
 
-            // Integer answer = new FableEvaluator().visit(parser.start());
+            // new FableEvaluator().visit();
         }
         catch (Exception exception) {
-            System.out.printf("Exception : " + exception.toString());
+            System.out.print("Exception : " + exception.toString());
         }
     }
 
