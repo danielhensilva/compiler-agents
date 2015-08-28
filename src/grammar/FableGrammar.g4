@@ -1,20 +1,63 @@
 grammar FableGrammar;
 
-fable : 'FABULA' ident '(' ( knowledge | scene )+ ')' ;
+fable
+	: 'FABULA' Identifier '(' ( Knowledge | Scene )+ ')'
+	;
 
-knowledge : 'CONHECIMENTO' ident '(' description? requirement? question ')' ',' ;
-question : 'PERGUNTA' string '(' answer option+ unknown ')' ',' ;
-scene : 'CENA' ident '(' description association? ')' ',' ;
+Knowledge
+	: 'CONHECIMENTO' Identifier '('  Requirements? ( Remember | Understand )* Description ')'
+	;
 
-requirement : 'REQUISITO' '(' (ident ',')+ ')' ;
-association : 'ASSOCIACAO' '(' (ident ',')+ ')' ;
+Scene
+	: 'CENA' Identifier '(' Associations? Description ')'
+	;
 
-description : 'DESCRICAO' string ',' ;
-answer : 'RESPOSTA' string ',' ;
-option : 'ALTERNATIVA' string ',' ;
-unknown : 'DESCONHECE' string ',' ;
+Remember
+	: 'LEMBRAR' String Identifier
+	;
 
-string : '"' ( ~'"' | '\\' '"' )* '"' ;
-ident : ( 'A .. Z' | 'a .. z' | '0 .. 9' )* ;
+Understand
+	: 'ENTENDER' String Identifier
+	;
 
-WS : [ \t\r\n]+ -> skip ;
+Associations
+	: 'ASSOCIACAO' '(' Identifier+ ')'
+	;
+
+Requirements
+	: 'REQUISITO' '(' Identifier+ ')'
+	;
+
+Description
+	: 'DESCRICAO' String
+	;
+
+Identifier
+	: Literal ( Literal | Digit )*
+	;
+
+String
+	: '"' ( ~'"' | '\\' '"' )* '"'
+	;
+
+fragment
+Literal
+	: ( 'A .. Z' | 'a .. z' )
+	;
+
+fragment
+Digit
+	: ( '0 .. 9' )
+	;
+
+Whitespace
+	: [ \t\r\n]+ -> skip
+	;
+
+BlockComment
+	: '/*' .*? '*/' -> skip
+	;
+
+LineComment
+	: '//' ~[\r\n]* -> skip
+	;

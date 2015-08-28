@@ -3,7 +3,6 @@ import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import domain.*;
 import grammar.*;
 
 public class Main {
@@ -18,7 +17,7 @@ public class Main {
             FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRInputStream(input));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
 
-            Integer answer = new FableEvaluator().visit(parser.start());
+            // Integer answer = new FableEvaluator().visit(parser.start());
         }
         catch (Exception exception) {
             System.out.printf("Exception : " + exception.toString());

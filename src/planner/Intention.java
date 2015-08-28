@@ -1,7 +1,5 @@
 package planner;
 
-import domain.*;
-
 public abstract class Intention {
 
     private String name;
@@ -15,6 +13,6 @@ public abstract class Intention {
 
     public abstract Boolean isApplicable(Belief[] beliefs);
 
-public abstract Action[] getSteps();
+    public abstract Action[] getSteps();
 
 }

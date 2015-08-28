@@ -1,7 +1,6 @@
 package agent;
 
 import communication.*;
-import domain.*;
 import planner.*;
 import utils.*;
 
