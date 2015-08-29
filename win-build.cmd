@@ -1,7 +1,7 @@
 @echo off
 
 ECHO Preparing folder...
-SET CLASSPATH=;%~dp0\lib\antlr-4.5.1-complete.jar;%CLASSPATH%
+SET CLASSPATH=;%~dp0\lib\antlr-4.5.1-complete.jar
 
 ECHO Generating parser...
 PUSHD "src\grammar"
