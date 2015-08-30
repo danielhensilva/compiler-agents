@@ -1,7 +1,7 @@
 package grammar;
 
-public class FableEvaluator extends FableGrammarBaseVisitor<Integer> {
+public class FableEvaluator extends FableGrammarBaseVisitor<String> {
 
-    
+
 
 }

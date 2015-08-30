@@ -1,6 +1,5 @@
 import java.io.*;
 import org.antlr.v4.runtime.ANTLRFileStream;
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import grammar.*;
@@ -13,37 +12,18 @@ public class Main {
         // http://docs.oracle.com/javase/8/docs/
 
         try {
-            String input = readFableInput();
-            FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRInputStream(input));
+            String file = "../src/input.fg";
+            FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRFileStream(file));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
 
-            // new FableEvaluator().visit();
+            parser.setBuildParseTree(true);
+
+            ParseTree tree = parser.fabula();
+            new FableEvaluator().visit(tree);
+
         }
         catch (Exception exception) {
             System.out.print("Exception : " + exception.toString());
-        }
-    }
-
-    private static String readFableInput() throws FileNotFoundException, IOException {
-
-        FileReader fileReader = new FileReader("../src/grammar/FableInput.txt");
-
-        try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-
-            StringBuilder builder = new StringBuilder();
-            String line = bufferedReader.readLine();
-
-            while (line != null) {
-                builder.append(line);
-                builder.append(System.lineSeparator());
-                line = bufferedReader.readLine();
-            }
-
-            String everything = builder.toString();
-            return everything;
-        }
-        finally {
-            fileReader.close();
         }
     }
 

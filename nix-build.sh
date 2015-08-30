@@ -10,7 +10,7 @@ rm -r bin
 mkdir bin
 
 echo Compiling project...
-javac -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/grammar/*.java src/planner/*.java src/utils/*.java src/*.java
+javac -d bin -Xlint:unchecked src/**/*.java src/*.java
 
 echo Executing...
 pushd bin

@@ -1,63 +1,45 @@
 grammar FableGrammar;
 
-fable
-	: 'FABULA' Identifier '(' ( Knowledge | Scene )+ ')'
+fabula
+    : identifier '(' ( knowledge | scene )* ')'
+    ;
+
+knowledge
+	: 'CONHECIMENTO' identifier '('  requirements? ( remember | understand )* description ')'
 	;
 
-Knowledge
-	: 'CONHECIMENTO' Identifier '('  Requirements? ( Remember | Understand )* Description ')'
+scene
+	: 'CENA' identifier '(' associations? description ')'
 	;
 
-Scene
-	: 'CENA' Identifier '(' Associations? Description ')'
+remember
+	: 'LEMBRAR' String identifier
 	;
 
-Remember
-	: 'LEMBRAR' String Identifier
+understand
+	: 'ENTENDER' String identifier
 	;
 
-Understand
-	: 'ENTENDER' String Identifier
+associations
+	: 'ASSOCIACAO' '(' identifier+ ')'
 	;
 
-Associations
-	: 'ASSOCIACAO' '(' Identifier+ ')'
+requirements
+	: 'REQUISITO' '(' identifier+ ')'
 	;
 
-Requirements
-	: 'REQUISITO' '(' Identifier+ ')'
-	;
-
-Description
+description
 	: 'DESCRICAO' String
 	;
 
-Identifier
-	: Literal ( Literal | Digit )*
+identifier
+	: ( 'a..z' | 'A..Z' ) ( ( 'a..z' | 'A..Z' ) | ( '0..9' ) )*
 	;
 
 String
 	: '"' ( ~'"' | '\\' '"' )* '"'
 	;
 
-fragment
-Literal
-	: ( 'A .. Z' | 'a .. z' )
-	;
-
-fragment
-Digit
-	: ( '0 .. 9' )
-	;
-
 Whitespace
-	: [ \t\r\n]+ -> skip
-	;
-
-BlockComment
-	: '/*' .*? '*/' -> skip
-	;
-
-LineComment
-	: '//' ~[\r\n]* -> skip
-	;
+    : [ \t\r\n]+ -> skip
+    ;
