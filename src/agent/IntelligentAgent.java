@@ -4,7 +4,7 @@ import communication.*;
 import planner.*;
 import utils.*;
 
-public abstract class IntelligentAgent implements ObserverAgent {
+public abstract class IntelligentAgent {
 
     /*
     Procedural Reasoning System (Georgeff and Lansky ~86)
@@ -21,16 +21,7 @@ public abstract class IntelligentAgent implements ObserverAgent {
     end repeat
     */
 
-    protected List<Belief> beliefs;
-
-    protected List<Desire> desires;
-
-    protected List<Intention> intentions;
-
     public IntelligentAgent() {
-        this.beliefs = new List<>();
-        this.desires = new List<>();
-        this.intentions = new List<>();
     }
 
     public abstract List<Belief> sensor(Blackboard blackboard);
@@ -39,22 +30,12 @@ public abstract class IntelligentAgent implements ObserverAgent {
 
     public abstract List<Intention> plan(List<Desire> desires);
 
-    public void Execute() {
+    public abstract void Execute();
 
-    }
+    public abstract List<Percept> getNewExternalPercepts();
 
-    public List<Percept> getNewExternalPercepts() {
-        return null;
-    }
+    public abstract void dropSucessfulAttitudes();
 
-    public void dropSucessfulAttitudes() {
-
-    }
-
-    public void dropImpossibleAttitudes() {
-
-    }
-
-    public abstract void notify(EventType eventType);
+    public abstract void dropImpossibleAttitudes();
 
 }

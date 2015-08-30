@@ -16,37 +16,13 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFabula(FableGrammarParser.FabulaContext ctx) { }
+	@Override public void enterRequirements(FableGrammarParser.RequirementsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFabula(FableGrammarParser.FabulaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterKnowledge(FableGrammarParser.KnowledgeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitKnowledge(FableGrammarParser.KnowledgeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterScene(FableGrammarParser.SceneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitScene(FableGrammarParser.SceneContext ctx) { }
+	@Override public void exitRequirements(FableGrammarParser.RequirementsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -76,30 +52,6 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssociations(FableGrammarParser.AssociationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAssociations(FableGrammarParser.AssociationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRequirements(FableGrammarParser.RequirementsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRequirements(FableGrammarParser.RequirementsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDescription(FableGrammarParser.DescriptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -112,13 +64,73 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifier(FableGrammarParser.IdentifierContext ctx) { }
+	@Override public void enterKnowledge(FableGrammarParser.KnowledgeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentifier(FableGrammarParser.IdentifierContext ctx) { }
+	@Override public void exitKnowledge(FableGrammarParser.KnowledgeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAssociations(FableGrammarParser.AssociationsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAssociations(FableGrammarParser.AssociationsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFable(FableGrammarParser.FableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFable(FableGrammarParser.FableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNormalScene(FableGrammarParser.NormalSceneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNormalScene(FableGrammarParser.NormalSceneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStartScene(FableGrammarParser.StartSceneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStartScene(FableGrammarParser.StartSceneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEndScene(FableGrammarParser.EndSceneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEndScene(FableGrammarParser.EndSceneContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

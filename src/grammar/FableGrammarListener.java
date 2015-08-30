@@ -8,35 +8,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface FableGrammarListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#fabula}.
+	 * Enter a parse tree produced by {@link FableGrammarParser#requirements}.
 	 * @param ctx the parse tree
 	 */
-	void enterFabula(FableGrammarParser.FabulaContext ctx);
+	void enterRequirements(FableGrammarParser.RequirementsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#fabula}.
+	 * Exit a parse tree produced by {@link FableGrammarParser#requirements}.
 	 * @param ctx the parse tree
 	 */
-	void exitFabula(FableGrammarParser.FabulaContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#knowledge}.
-	 * @param ctx the parse tree
-	 */
-	void enterKnowledge(FableGrammarParser.KnowledgeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#knowledge}.
-	 * @param ctx the parse tree
-	 */
-	void exitKnowledge(FableGrammarParser.KnowledgeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#scene}.
-	 * @param ctx the parse tree
-	 */
-	void enterScene(FableGrammarParser.SceneContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#scene}.
-	 * @param ctx the parse tree
-	 */
-	void exitScene(FableGrammarParser.SceneContext ctx);
+	void exitRequirements(FableGrammarParser.RequirementsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#remember}.
 	 * @param ctx the parse tree
@@ -58,26 +38,6 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 */
 	void exitUnderstand(FableGrammarParser.UnderstandContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#associations}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssociations(FableGrammarParser.AssociationsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#associations}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssociations(FableGrammarParser.AssociationsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#requirements}.
-	 * @param ctx the parse tree
-	 */
-	void enterRequirements(FableGrammarParser.RequirementsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#requirements}.
-	 * @param ctx the parse tree
-	 */
-	void exitRequirements(FableGrammarParser.RequirementsContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#description}.
 	 * @param ctx the parse tree
 	 */
@@ -88,13 +48,69 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 */
 	void exitDescription(FableGrammarParser.DescriptionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#identifier}.
+	 * Enter a parse tree produced by {@link FableGrammarParser#knowledge}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdentifier(FableGrammarParser.IdentifierContext ctx);
+	void enterKnowledge(FableGrammarParser.KnowledgeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#identifier}.
+	 * Exit a parse tree produced by {@link FableGrammarParser#knowledge}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdentifier(FableGrammarParser.IdentifierContext ctx);
+	void exitKnowledge(FableGrammarParser.KnowledgeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#associations}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssociations(FableGrammarParser.AssociationsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#associations}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssociations(FableGrammarParser.AssociationsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#fable}.
+	 * @param ctx the parse tree
+	 */
+	void enterFable(FableGrammarParser.FableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#fable}.
+	 * @param ctx the parse tree
+	 */
+	void exitFable(FableGrammarParser.FableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code normalScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void enterNormalScene(FableGrammarParser.NormalSceneContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code normalScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void exitNormalScene(FableGrammarParser.NormalSceneContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code startScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void enterStartScene(FableGrammarParser.StartSceneContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code startScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void exitStartScene(FableGrammarParser.StartSceneContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code endScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void enterEndScene(FableGrammarParser.EndSceneContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code endScene}
+	 * labeled alternative in {@link FableGrammarParser#scene}.
+	 * @param ctx the parse tree
+	 */
+	void exitEndScene(FableGrammarParser.EndSceneContext ctx);
 }

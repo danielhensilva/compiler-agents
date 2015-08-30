@@ -25,6 +25,12 @@ public class List<T> implements Iterable<T> {
 		return (T[])this.array.toArray();
 	}
 
+    public void remove(T element) {
+        for (T e : this.array)
+            if (e.equals(element))
+                this.array.remove(e);
+    }
+
 	public T getFirstItem() {
 		if (this.array.isEmpty())
 			return null;
@@ -38,5 +44,9 @@ public class List<T> implements Iterable<T> {
 
 		return this.array.get(this.array.size() - 1);
 	}
+
+    public String[] toStringArray() {
+        return this.array.toArray(new String[this.array.size()]);
+    }
 
 }

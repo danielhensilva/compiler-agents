@@ -1,8 +1,12 @@
-import java.io.*;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import agent.*;
+import communication.*;
+import domain.*;
 import grammar.*;
+import planner.*;
+import utils.*;
 
 public class Main {
 
@@ -11,20 +15,36 @@ public class Main {
         // http://www.antlr.org/api/Java/index.html
         // http://docs.oracle.com/javase/8/docs/
 
+        Fable fable = parse("../src/input.fg");
+        if (fable == null) return;
+    }
+
+    private static Fable parse(String filePath) {
         try {
-            String file = "../src/input.fg";
-            FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRFileStream(file));
+            FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRFileStream(filePath));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
 
-            parser.setBuildParseTree(true);
+            // parser.setBuildParseTree(true);
+            // parser.removeErrorListeners();
 
-            ParseTree tree = parser.fabula();
-            new FableEvaluator().visit(tree);
+            ParseTree parseTree = parser.fable();
 
+            FableEvaluator evaluator = new FableEvaluator();
+            evaluator.visit(parseTree);
+
+            Fable fable = evaluator.getFable();
+            return fable;
         }
         catch (Exception exception) {
-            System.out.print("Exception : " + exception.toString());
+            System.out.println("Exception : " + exception);
+            return null;
         }
+    }
+
+    private static List<IntelligentAgent> createIntelligentAgents() {
+        List<IntelligentAgent> agents = new List<>();
+
+        return agents;
     }
 
 }
