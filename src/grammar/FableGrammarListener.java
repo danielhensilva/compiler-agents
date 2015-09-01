@@ -8,36 +8,6 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface FableGrammarListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#requirements}.
-	 * @param ctx the parse tree
-	 */
-	void enterRequirements(FableGrammarParser.RequirementsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#requirements}.
-	 * @param ctx the parse tree
-	 */
-	void exitRequirements(FableGrammarParser.RequirementsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#remember}.
-	 * @param ctx the parse tree
-	 */
-	void enterRemember(FableGrammarParser.RememberContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#remember}.
-	 * @param ctx the parse tree
-	 */
-	void exitRemember(FableGrammarParser.RememberContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#understand}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnderstand(FableGrammarParser.UnderstandContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#understand}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnderstand(FableGrammarParser.UnderstandContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#description}.
 	 * @param ctx the parse tree
 	 */
@@ -47,16 +17,6 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDescription(FableGrammarParser.DescriptionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FableGrammarParser#knowledge}.
-	 * @param ctx the parse tree
-	 */
-	void enterKnowledge(FableGrammarParser.KnowledgeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FableGrammarParser#knowledge}.
-	 * @param ctx the parse tree
-	 */
-	void exitKnowledge(FableGrammarParser.KnowledgeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FableGrammarParser#associations}.
 	 * @param ctx the parse tree
@@ -113,4 +73,44 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEndScene(FableGrammarParser.EndSceneContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#knowledge}.
+	 * @param ctx the parse tree
+	 */
+	void enterKnowledge(FableGrammarParser.KnowledgeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#knowledge}.
+	 * @param ctx the parse tree
+	 */
+	void exitKnowledge(FableGrammarParser.KnowledgeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#remember}.
+	 * @param ctx the parse tree
+	 */
+	void enterRemember(FableGrammarParser.RememberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#remember}.
+	 * @param ctx the parse tree
+	 */
+	void exitRemember(FableGrammarParser.RememberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#understand}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnderstand(FableGrammarParser.UnderstandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#understand}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnderstand(FableGrammarParser.UnderstandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FableGrammarParser#requirements}.
+	 * @param ctx the parse tree
+	 */
+	void enterRequirements(FableGrammarParser.RequirementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FableGrammarParser#requirements}.
+	 * @param ctx the parse tree
+	 */
+	void exitRequirements(FableGrammarParser.RequirementsContext ctx);
 }

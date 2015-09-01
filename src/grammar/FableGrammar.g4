@@ -1,60 +1,46 @@
 grammar FableGrammar;
 
-requirements
-	: REQUIREMENT Open Identifier+ Close
-	;
-
-remember
-	: REMEMBER String Identifier
-	;
-
-understand
-	: UNDERSTAND String Identifier
-	;
-
 description
-	: DESCRIPTION String
-	;
-
-knowledge
-	: KNOWLEDGE Identifier Open requirements? ( remember | understand )* description Close
-	;
+    : 'DESCRICAO' String
+    ;
 
 associations
-	: ASSOCIATION Open Identifier+ Close
+	: 'ASSOCIACAO' '(' Identifier+ ')'
 	;
 
 fable
-    : 'FABULA' Identifier Open ( knowledge | scene )+ Close EOF
+    : 'FABULA' Identifier '(' ( knowledge | scene )+ ')' EOF
     ;
 
 scene
-	: NORMALSCENE Identifier Open associations? description Close # normalScene
-    | STARTSCENE Identifier Open associations? description Close # startScene
-	| ENDSCENE Identifier Open description Close # endScene
+	: 'CENA' Identifier '(' associations? description ')' # normalScene
+    | 'INICIO' Identifier '(' associations? description ')' # startScene
+	| 'FIM' Identifier '(' description ')' # endScene
 	;
 
-Identifier
-    : [a-zA-Z_] [a-zA-Z_0-9]*
-    ;
+knowledge
+	: 'CONHECIMENTO' Identifier '(' requirements? ( remember | understand )* description ')'
+	;
+
+remember
+	: 'LEMBRAR' String Identifier
+	;
+
+understand
+	: 'ENTENDER' String Identifier
+	;
+
+requirements
+	: 'REQUISITO' '(' Identifier+ ')'
+	;
 
 String
     : '"' ( ~'"' | '\\' '"' )* '"'
     ;
 
-Open : '(' ;
-Close : ')' ;
-
-FABLE : 'FABULA' ;
-REQUIREMENT : 'REQUISITO' ;
-REMEMBER : 'LEMBRAR' ;
-UNDERSTAND : 'ENTENDER' ;
-DESCRIPTION : 'DESCRICAO' ;
-KNOWLEDGE : 'CONHECIMENTO' ;
-ASSOCIATION : 'ASSOCIACAO' ;
-NORMALSCENE : 'CENA' ;
-STARTSCENE : 'INICIO' ;
-ENDSCENE : 'FIM' ;
+Identifier
+    : [a-zA-Z_] [a-zA-Z_0-9]*
+    ;
 
 Comment : ('//' ~[\r\n]* | '/*' .*? '*/') -> skip ;
 Whitespace : [ \t\r\n\u000C] -> skip ;

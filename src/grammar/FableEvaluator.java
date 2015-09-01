@@ -37,6 +37,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
     @Override
     public Object visitKnowledge(FableGrammarParser.KnowledgeContext ctx) {
+        System.out.println(ctx.Identifier());
         return visitChildren(ctx);
     }
 
@@ -47,16 +48,19 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
 	@Override
     public Object visitNormalScene(FableGrammarParser.NormalSceneContext ctx) {
+        System.out.println(ctx.Identifier());
         return visitChildren(ctx);
     }
 
     @Override
     public Object visitStartScene(FableGrammarParser.StartSceneContext ctx) {
+        System.out.println(ctx.Identifier());
         return visitChildren(ctx);
     }
 
     @Override
     public Object visitEndScene(FableGrammarParser.EndSceneContext ctx) {
+        System.out.println(ctx.Identifier());
         return visitChildren(ctx);
     }
 
