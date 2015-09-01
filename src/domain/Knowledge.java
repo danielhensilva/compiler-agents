@@ -6,48 +6,48 @@ public class Knowledge {
 
     private String identifier;
 
-    private List<String> requirement;
+    private List<String> requirementCollection;
 
-    private PairList<String, String> remember;
+    private PairList<String, String> rememberCollection;
 
-    private PairList<String, String> understand;
+    private PairList<String, String> understandCollection;
 
     private String description;
 
     public Knowledge(String identifier, String description) {
         this.identifier = identifier;
         this.description = description;
-        this.requirement = new List<>();
-        this.remember = new PairList<>();
-        this.understand = new PairList<>();
+        this.requirementCollection = new List<>();
+        this.rememberCollection = new PairList<>();
+        this.understandCollection = new PairList<>();
     }
 
     public void addRequirement(String identifier) {
-        this.requirement.add(identifier);
+        this.requirementCollection.add(identifier);
     }
 
     public void addRemember(String text, String identifier) {
-        this.remember.add(text, identifier);
+        this.rememberCollection.add(text, identifier);
     }
 
     public void addUnderstand(String text, String identifier) {
-        this.understand.add(text, identifier);
+        this.understandCollection.add(text, identifier);
     }
 
     public String getIdentifier() {
         return this.identifier;
     }
 
-    public List<String> getRequirement() {
-        return this.requirement;
+    public List<String> getRequirementCollection() {
+        return this.requirementCollection;
     }
 
-    public PairList<String, String> getRemember() {
-        return this.remember;
+    public PairList<String, String> getRememberCollection() {
+        return this.rememberCollection;
     }
 
-    public PairList<String, String> getUnderstand() {
-        return this.understand;
+    public PairList<String, String> getUnderstandCollection() {
+        return this.understandCollection;
     }
 
     public String getDescription() {

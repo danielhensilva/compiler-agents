@@ -16,18 +16,6 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDescription(FableGrammarParser.DescriptionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDescription(FableGrammarParser.DescriptionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterAssociations(FableGrammarParser.AssociationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -35,6 +23,42 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAssociations(FableGrammarParser.AssociationsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRemember(FableGrammarParser.RememberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRemember(FableGrammarParser.RememberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterUnderstand(FableGrammarParser.UnderstandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitUnderstand(FableGrammarParser.UnderstandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRequirements(FableGrammarParser.RequirementsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRequirements(FableGrammarParser.RequirementsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -100,37 +124,13 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRemember(FableGrammarParser.RememberContext ctx) { }
+	@Override public void enterDescription(FableGrammarParser.DescriptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRemember(FableGrammarParser.RememberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterUnderstand(FableGrammarParser.UnderstandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitUnderstand(FableGrammarParser.UnderstandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRequirements(FableGrammarParser.RequirementsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRequirements(FableGrammarParser.RequirementsContext ctx) { }
+	@Override public void exitDescription(FableGrammarParser.DescriptionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

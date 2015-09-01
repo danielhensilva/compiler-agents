@@ -28,11 +28,9 @@ public class Main {
             // parser.removeErrorListeners();
 
             ParseTree parseTree = parser.fable();
-
             FableEvaluator evaluator = new FableEvaluator();
-            evaluator.visit(parseTree);
+            Fable fable = (Fable)evaluator.visit(parseTree);
 
-            Fable fable = evaluator.getFable();
             return fable;
         }
         catch (Exception exception) {

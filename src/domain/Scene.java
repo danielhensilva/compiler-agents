@@ -6,17 +6,23 @@ public class Scene {
 
     private String identifier;
 
+    private Boolean isStart;
+
+    private Boolean isEnd;
+
     private String description;
 
     private List<String> knowledgeIdentifiers;
 
-    public Scene(String identifier, String description) {
+    public Scene(String identifier, String description, Boolean isStart, Boolean isEnd) {
         this.identifier = identifier;
         this.description = description;
+        this.isStart = isStart;
+        this.isEnd = isEnd;
         this.knowledgeIdentifiers = new List<>();
     }
 
-    public void addKnowledgeIdenfier(String identifier) {
+    public void addKnowledgeIdentifier(String identifier) {
         this.knowledgeIdentifiers.add(identifier);
     }
 
@@ -30,6 +36,14 @@ public class Scene {
 
     public List<String> getKnowledgeIdentifiers() {
         return this.knowledgeIdentifiers;
+    }
+
+    public Boolean isStart() {
+        return this.isStart;
+    }
+
+    public Boolean isEnd() {
+        return this.isEnd;
     }
 
 }

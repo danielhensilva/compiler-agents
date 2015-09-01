@@ -1,11 +1,19 @@
 grammar FableGrammar;
 
-description
-    : 'DESCRICAO' String
-    ;
-
 associations
 	: 'ASSOCIACAO' '(' Identifier+ ')'
+	;
+
+remember
+	: 'LEMBRAR' String Identifier
+	;
+
+understand
+	: 'ENTENDER' String Identifier
+	;
+
+requirements
+	: 'REQUISITO' '(' Identifier+ ')'
 	;
 
 fable
@@ -22,17 +30,9 @@ knowledge
 	: 'CONHECIMENTO' Identifier '(' requirements? ( remember | understand )* description ')'
 	;
 
-remember
-	: 'LEMBRAR' String Identifier
-	;
-
-understand
-	: 'ENTENDER' String Identifier
-	;
-
-requirements
-	: 'REQUISITO' '(' Identifier+ ')'
-	;
+description
+    : 'DESCRICAO' String
+    ;
 
 String
     : '"' ( ~'"' | '\\' '"' )* '"'
