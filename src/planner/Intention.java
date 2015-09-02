@@ -1,18 +1,15 @@
 package planner;
 
+import communication.*;
+import domain.*;
+import grammar.*;
+import planner.*;
+import utils.*;
+
 public abstract class Intention {
 
-    private String name;
+    public abstract Boolean isApplicable(List<Belief> beliefs);
 
-    private Desire target;
-
-    public Intention(String name, Desire target) {
-        this.name = name;
-        this.target = target;
-    }
-
-    public abstract Boolean isApplicable(Belief[] beliefs);
-
-    public abstract Action[] getSteps();
+    public abstract void execute(Blackboard blacboard);
 
 }

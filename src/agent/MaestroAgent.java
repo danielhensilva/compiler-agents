@@ -1,11 +1,10 @@
-/*
 package agent;
 
-import grammar.*;
 import communication.*;
-import org.antlr.v4.runtime.tree.ParseTree;
-import utils.*;
+import domain.*;
+import grammar.*;
 import planner.*;
+import utils.*;
 
 public class MaestroAgent extends IntelligentAgent {
 
@@ -13,36 +12,32 @@ public class MaestroAgent extends IntelligentAgent {
     }
 
     @Override
-    public List<Belief> sensor(Blackboard blackboard) {
+    public void initializeState(List<Intention> intentions) {
+
+    }
+
+    @Override
+    public List<Belief> sensorate(Blackboard blackboard) {
         Event event = blackboard.popEvent(EventType.Maestro);
 
         if (event == null)
             return new List<Belief>();
+
+        return null;
     }
 
     @Override
     public List<Desire> deliberate(List<Belief> beliefs) {
+        return null;
     }
 
     @Override
     public List<Intention> plan(List<Desire> desires) {
+        return null;
     }
 
     @Override
-    public void Execute() {
-    }
-
-    @Override
-    public List<Percept> getNewExternalPercepts() {
-    }
-
-    @Override
-    public void dropSucessfulAttitudes() {
-    }
-
-    @Override
-    public void dropImpossibleAttitudes() {
+    public void execute(List<Intention> intentions) {
     }
 
 }
-*/

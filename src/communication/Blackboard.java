@@ -4,17 +4,17 @@ import utils.*;
 
 public class Blackboard {
 
-    private List<Fragment> fable;
+    private List<Fragment> fragments;
 
     private List<Event> events;
 
     public Blackboard() {
-        this.fable = new List<>();
+        this.fragments = new List<>();
         this.events = new List<>();
     }
 
     public void addFragment(Fragment fragment) {
-        this.fable.add(fragment);
+        this.fragments.add(fragment);
     }
 
     public void pushEvent(EventType type) {

@@ -45,6 +45,18 @@ public class List<T> implements Iterable<T> {
 		return this.array.get(this.array.size() - 1);
 	}
 
+    public <Q> Q getByType(Class<Q> target) {
+        Optional<T> element = this.array
+            .stream()
+            .filter(x -> x.getClass().isInstance(target))
+            .findFirst();
+
+        if (element.isPresent())
+            return target.cast(element.get());
+
+        return null;
+    }
+
     public String[] toStringArray() {
         return this.array.toArray(new String[this.array.size()]);
     }
