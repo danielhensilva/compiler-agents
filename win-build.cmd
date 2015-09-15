@@ -13,7 +13,7 @@ RMDIR bin /S /Q
 MKDIR bin
 
 ECHO Compiling project...
-JAVAC -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/grammar/*.java src/planner/*.java src/utils/*.java src/*.java
+JAVAC -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/*.java src/grammar/*.java src/planner/*.java src/utils/*.java src/*.java
 
 ECHO Executing...
 PUSHD bin
