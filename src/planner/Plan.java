@@ -20,12 +20,12 @@ public abstract class Plan {
 
 	public abstract boolean isApplicable(BeliefSet beliefSet);
 
-	public void execute() {
+	public void execute(Blackboard blackboard) {
 		if (this.actions == null)
 			return;
 
 		for (Action action : this.actions)
-			action.execute();
+			action.execute(blackboard);
 	}
 
 }

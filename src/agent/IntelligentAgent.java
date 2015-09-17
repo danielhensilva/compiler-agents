@@ -35,7 +35,7 @@ public abstract class IntelligentAgent {
             if (plan == null)
                 continue;
 
-            plan.execute();
+            plan.execute(this.blackboard);
         }
     }
 
