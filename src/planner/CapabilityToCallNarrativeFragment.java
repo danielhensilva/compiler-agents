@@ -2,17 +2,17 @@ package planner;
 
 public class CapabilityOfCallNarrativeFragment extends Capability {
 
-	public CapabilityOfTranslateKnowledge(Environment environment) {
-		super(environment);
-		this.addGoal(new GoalToCallForObjetives());
-		this.addGoal(new GoalToCallForConflicts());
+	public CapabilityOfTranslateKnowledge(Blackboard blackboard) {
+		super(blackboard);
+		this.addGoal(new GoalToCallForObjetive());
+		this.addGoal(new GoalToCallForConflict());
 		this.addGoal(new GoalToCallForCatastrophe());
 		this.addGoal(new GoalToCallForDecision());
 	}
 
 	@Override
 	public BeliefSet generateBeliefSet() {
-		Environment environment = this.getEnvironment();
+		Blackboard blackboard = this.getBlackboard();
 		// TODO ???
 	}
 

@@ -8,9 +8,12 @@ import utils.*;
 
 public abstract class IntelligentAgent {
 
+    private Blackboard blackboard;
+
     private List<Capability> capabilities;
 
-    public IntelligentAgent() {
+    public IntelligentAgent(Blackboard blackboard) {
+        this.blackboard = blackboard;
         this.capabilities = new List<>();
     }
 
@@ -18,12 +21,22 @@ public abstract class IntelligentAgent {
         this.capability = capability;
     }
 
-    public void run() {
-        for (Capability capability : capabilities) {
-            Plan plan = capability.getAnyPlan();
-        }
+    public Blackboard getBlackboard() {
+        return this.blackboard;
     }
 
+    public List<Capability> getCapabilities() {
+        return this.capabilities;
+    }
 
+    public void run() {
+        for (Capability capability : this.capabilities) {
+            Plan plan = capability.getAnyPlan();
+            if (plan == null)
+                continue;
+
+            plan.execute();
+        }
+    }
 
 }

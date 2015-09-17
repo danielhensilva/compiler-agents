@@ -6,11 +6,11 @@ public abstract class Capability {
 
 	private GoalSet goalSet;
 
-	private Environment environment;
+	private Blackboard blackboard;
 
-	public Capability(Environment environment) {
+	public Capability(Blackboard blackboard) {
 		this.goalSet = new GoalSet();
-		this.environment = environment;
+		this.blackboard = blackboard;
 	}
 
 	protected void addGoal(Goal goal) {
@@ -21,8 +21,8 @@ public abstract class Capability {
 		return this.goalSet;
 	}
 
-	public Environment getEnvironment() {
-		return this.environment;
+	public Environment getBlackboard() {
+		return this.blackboard;
 	}
 
 	public abstract BeliefSet generateBeliefSet();

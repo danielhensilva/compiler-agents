@@ -2,15 +2,15 @@ package planner;
 
 public class CapabilityOfDeliverScript extends Capability {
 
-	public CapabilityOfDeliverScript(Environment environment) {
-		super(environment);
+	public CapabilityOfDeliverScript(Blackboard blackboard) {
+		super(blackboard);
 		this.addGoal(new GoalToDeliverScript());
 		this.addGoal(new GoalToCleanEnvironment());
 	}
 
 	@Override
 	public BeliefSet generateBeliefSet() {
-		Environment environment = this.getEnvironment();
+		Blackboard blackboard = this.getBlackboard();
 		// TODO ???
 	}
 

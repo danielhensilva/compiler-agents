@@ -2,14 +2,14 @@ package planner;
 
 public class CapabilityOfGenerateCatastrophe extends Capability {
 
-	public CapabilityOfGenerateCatastrophe(Environment environment) {
-		super(environment);
+	public CapabilityOfGenerateCatastrophe(Blackboard blackboard) {
+		super(blackboard);
 		this.addGoal(new GoalToGenerateCatastrophe());
 	}
 
 	@Override
 	public BeliefSet generateBeliefSet() {
-		Environment environment = this.getEnvironment();
+		Blackboard blackboard = this.getBlackboard();
 		// TODO ???
 	}
 
