@@ -22,7 +22,7 @@ fable
 
 scene
 	: 'CENA' Identifier '(' associations? description ')' # normalScene
-    | 'INICIO' Identifier '(' associations? description ')' # startScene
+    | 'INICIO' Identifier '(' associations description ')' # startScene
 	| 'FIM' Identifier '(' description ')' # endScene
 	;
 
@@ -39,7 +39,7 @@ String
     ;
 
 Identifier
-    : [a-zA-Z_] [a-zA-Z_0-9]*
+    : [a-zA-Z] [a-zA-Z0-9]*
     ;
 
 Comment : ('//' ~[\r\n]* | '/*' .*? '*/') -> skip ;

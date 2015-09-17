@@ -20,9 +20,10 @@ public abstract class IntelligentAgent {
 
     public void run() {
         for (Capability capability : capabilities) {
-            BeliefSet beliefSet = capability.generateBeliefSet();
-            
+            Plan plan = capability.getAnyPlan();
         }
     }
+
+
 
 }

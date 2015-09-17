@@ -6,14 +6,26 @@ public abstract class Plan {
 
 	private List<Action> actions;
 
-	public abstract boolean isApplicable(BeliefSet beliefSet);
+	public Plan() {
+		actions = new List<>();
+	}
+
+	protected void addAction(Action action) {
+		this.actions.add(action);
+	}
 
 	public List<Action> getActions() {
 		return this.actions;
 	}
 
-	protected void setActions(List<Action> actions) {
-		this.actions = actions;
+	public abstract boolean isApplicable(BeliefSet beliefSet);
+
+	public void execute() {
+		if (this.actions == null)
+			return;
+
+		for (Action action : this.actions)
+			action.execute();
 	}
 
 }

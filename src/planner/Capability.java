@@ -27,4 +27,28 @@ public abstract class Capability {
 
 	public abstract BeliefSet generateBeliefSet();
 
+	public Goal getAnyGoal() {
+		BeliefSet beliefSet = this.generateBeliefSet();
+		if (beliefSet == null)
+			return null;
+
+		return this.getGoalSet()
+			.filter(beliefSet)
+			.getFirstItem();
+	}
+
+	public Plan getAnyPlan() {
+		BeliefSet beliefSet = this.generateBeliefSet();
+		if (beliefSet == null)
+			return null;
+
+		Goal goal = this.getAnyGoal();
+		if (goal == null)
+			return null;
+
+		return goal.getPlanSet()
+			.filter(beliefSet)
+			.getFirstItem();
+	}
+
 }
