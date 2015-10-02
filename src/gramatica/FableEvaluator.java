@@ -1,8 +1,8 @@
 package grammar;
 
 import org.antlr.v4.runtime.tree.*;
-import utils.*;
-import domain.*;
+import utilitarios.*;
+import dominio.*;
 
 public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
@@ -10,50 +10,50 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
     }
 
     @Override
-    public Object visitDescription(FableGrammarParser.DescriptionContext ctx) {
+    public Object visitDescricao(FableGrammarParser.DescricaoContext ctx) {
         return ctx.String().toString().replace("\"", "");
     }
 
     @Override
-    public Object visitRequirements(FableGrammarParser.RequirementsContext ctx) {
-        List<String> identifiers = new List<>();
+    public Object visitRequisitos(FableGrammarParser.RequisitosContext ctx) {
+        List<String> identificadores = new List<>();
 
-        if (ctx.Identifier() == null)
-            return identifiers;
+        if (ctx.Identificador() == null)
+            return identificadores;
 
-        for (TerminalNode node : ctx.Identifier())
-            identifiers.add(node.toString());
+        for (TerminalNode node : ctx.Identificador())
+            identificadores.add(node.toString());
 
-        return identifiers;
+        return identificadores;
     }
 
     @Override
-    public Object visitRemember(FableGrammarParser.RememberContext ctx) {
-        String identifier = ctx.Identifier().toString();
-        String text = ctx.String().toString().replace("\"", "");
-        return new Pair<String, String>(text, identifier);
+    public Object visitLembranca(FableGrammarParser.LembrancaContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String texto = ctx.String().toString().replace("\"", "");
+        return new Pair<String, String>(texto, identificador);
     }
 
     @Override
-    public Object visitUnderstand(FableGrammarParser.UnderstandContext ctx) {
-        String identifier = ctx.Identifier().toString();
-        String text = ctx.String().toString().replace("\"", "");
-        return new Pair<String, String>(text, identifier);
+    public Object visitEntendimento(FableGrammarParser.EntendimentoContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String texto = ctx.String().toString().replace("\"", "");
+        return new Pair<String, String>(texto, identificador);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Object visitKnowledge(FableGrammarParser.KnowledgeContext ctx) {
-        String identifier = ctx.Identifier().toString();
-        String description = (String)this.visit(ctx.description());
+    public Object visitConhecimento(FableGrammarParser.ConhecimentoContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String descricao = (String)this.visit(ctx.descricao());
 
-        Knowledge knowledge = new Knowledge(identifier, description);
+        Conhecimento conhecimento = new Conhecimento(identificador, descricao);
 
-        if (ctx.requirements() != null) {
-            List<String> requirements = (List<String>)this.visit(ctx.requirements());
-            if (requirements != null) {
-                for (String requirement : requirements)
-                    knowledge.addRequirement(requirement);
+        if (ctx.requisitos() != null) {
+            List<String> requisitos = (List<String>)this.visit(ctx.requisitos());
+            if (requisitos != null) {
+                for (String requisito : requisitos)
+                    conhecimento.adicionarRequisito(requisito);
             }
         }
 
@@ -80,7 +80,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
     public Object visitAssociations(FableGrammarParser.AssociationsContext ctx) {
         List<String> identifiers = new List<>();
 
-        for (TerminalNode node : ctx.Identifier())
+        for (TerminalNode node : ctx.Identificador())
             identifiers.add(node.toString());
 
         return identifiers;
@@ -89,7 +89,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 	@Override
     @SuppressWarnings("unchecked")
     public Object visitNormalScene(FableGrammarParser.NormalSceneContext ctx) {
-        String identifier = ctx.Identifier().toString();
+        String identifier = ctx.Identificador().toString();
         String description = (String)this.visit(ctx.description());
         Boolean isStart = false;
         Boolean isEnd = true;
@@ -108,7 +108,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
     @Override
     @SuppressWarnings("unchecked")
     public Object visitStartScene(FableGrammarParser.StartSceneContext ctx) {
-        String identifier = ctx.Identifier().toString();
+        String identifier = ctx.Identificador().toString();
         String description = (String)this.visit(ctx.description());
         Boolean isStart = true;
         Boolean isEnd = false;
@@ -128,7 +128,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
     @Override
     public Object visitEndScene(FableGrammarParser.EndSceneContext ctx) {
-        String identifier = ctx.Identifier().toString();
+        String identifier = ctx.Identificador().toString();
         String description = (String)this.visit(ctx.description());
         Boolean isStart = false;
         Boolean isEnd = true;
@@ -141,7 +141,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
     @Override
     public Object visitFable(FableGrammarParser.FableContext ctx) {
 
-        String identifier = ctx.Identifier().toString();
+        String identifier = ctx.Identificador().toString();
         Fable fable = new Fable(identifier);
 
         for (FableGrammarParser.KnowledgeContext knowledgeContext : ctx.knowledge()) {

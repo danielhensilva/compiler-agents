@@ -1,5 +1,5 @@
 // Generated from FableGrammar.g4 by ANTLR 4.5.1
-package grammar;
+package gramatica;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -17,68 +17,68 @@ public class FableGrammarBaseVisitor<T> extends AbstractParseTreeVisitor<T> impl
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAssociations(FableGrammarParser.AssociationsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssociacoes(FableGrammarParser.AssociacoesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRemember(FableGrammarParser.RememberContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLembranca(FableGrammarParser.LembrancaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUnderstand(FableGrammarParser.UnderstandContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEntendimento(FableGrammarParser.EntendimentoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRequirements(FableGrammarParser.RequirementsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRequisitos(FableGrammarParser.RequisitosContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFable(FableGrammarParser.FableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFabula(FableGrammarParser.FabulaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNormalScene(FableGrammarParser.NormalSceneContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCenaNormal(FableGrammarParser.CenaNormalContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStartScene(FableGrammarParser.StartSceneContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCenaInicial(FableGrammarParser.CenaInicialContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEndScene(FableGrammarParser.EndSceneContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCenaFinal(FableGrammarParser.CenaFinalContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitKnowledge(FableGrammarParser.KnowledgeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConhecimento(FableGrammarParser.ConhecimentoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDescription(FableGrammarParser.DescriptionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDescricao(FableGrammarParser.DescricaoContext ctx) { return visitChildren(ctx); }
 }

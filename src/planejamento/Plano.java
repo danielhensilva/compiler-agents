@@ -29,3 +29,15 @@ public abstract class Plan {
 	}
 
 }
+
+
+public Objetivo[] obterObjetivosFactíveis(Crenças[] c) {
+	ArrayList<Objetivo> resultados = new ArrayList<>();
+
+	if (this.objetivos != null)
+		for (Objetivo o : this.objetivos)
+			if (o.estadoAtual(c))
+				resultados.add(o);
+
+	return resultados.toArray();
+}

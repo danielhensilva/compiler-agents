@@ -1,19 +1,22 @@
 @echo off
 
-ECHO Preparing folder...
-SET CLASSPATH=;%~dp0\lib\antlr-4.5.1-complete.jar
-
-ECHO Generating parser...
-PUSHD "src\grammar"
-JAVA org.antlr.v4.Tool -visitor -listener -package grammar FableGrammar.g4
-POPD
+ECHO Killing java...
+powershell kill -name "java"
 
 ECHO Cleaning bin folder...
 RMDIR bin /S /Q
 MKDIR bin
 
+ECHO Preparing folder...
+SET CLASSPATH=;%~dp0\lib\antlr-4.5.1-complete.jar
+
+ECHO Generating parser...
+PUSHD "src\gramatica"
+JAVA org.antlr.v4.Tool -visitor -listener -package gramatica FableGrammar.g4
+POPD
+
 ECHO Compiling project...
-JAVAC -d bin -Xlint:unchecked src/agent/*.java src/communication/*.java src/domain/*.java src/grammar/*.java src/planner/*.java src/utils/*.java src/*.java
+JAVAC -d bin -Xlint:unchecked src/agente/*.java src/comunicacao/*.java src/dominio/*.java src/gramatica/*.java src/planejamento/*.java src/utilitario/*.java src/*.java
 
 ECHO Executing...
 PUSHD bin

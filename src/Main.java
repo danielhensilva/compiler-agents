@@ -1,7 +1,7 @@
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import agent.*;
+import agente.*;
 import communication.*;
 import domain.*;
 import grammar.*;
@@ -11,12 +11,8 @@ import utils.*;
 public class Main {
 
     public static void main(String[] args) {
-
-        // http://www.antlr.org/api/Java/index.html
-        // http://docs.oracle.com/javase/8/docs/
-
         Fable fable = parse("../src/input.fg");
-        if (fable == null) return;
+        
     }
 
     private static Fable parse(String filePath) {
@@ -41,6 +37,8 @@ public class Main {
 
     private static List<IntelligentAgent> createIntelligentAgents() {
         List<IntelligentAgent> agents = new List<>();
+
+
 
         return agents;
     }
