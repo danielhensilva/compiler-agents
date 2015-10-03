@@ -8,8 +8,9 @@ public class Desafio {
 
     private TipoDeDesafio tipoDeDesafio;
 
-    public Desafio(String texto, TipoDeDesafio tipoDeDesafio) {
+    public Desafio(String texto, Cena cena, TipoDeDesafio tipoDeDesafio) {
         this.texto = texto;
+        this.cena = cena;
         this.tipoDeDesafio = tipoDeDesafio;
     }
 

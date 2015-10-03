@@ -4,7 +4,7 @@ public class Cena {
 
     private String identificador;
 
-    private List<Conhecimento> objetivos;
+    private List<Conhecimento> associacoes;
 
     private String descricao;
 
@@ -12,9 +12,13 @@ public class Cena {
 
     public Cena(String identificador, String descricao, TipoDeCena tipoDeCena) {
         this.identificador = identificador;
-        this.objetivos = List<>();
+        this.associacoes = List<>();
         this.descricao = descricao;
         this.tipoDeCena = tipoDeCena;
+    }
+
+    public void addAssociacao(Conhecimento associacao) {
+        this.associacoes.add(associacao);
     }
 
 }

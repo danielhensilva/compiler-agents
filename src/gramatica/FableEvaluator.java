@@ -6,155 +6,197 @@ import dominio.*;
 
 public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
+    private List<Cena> cenasDeclaradas;
+
+    private List<Conhecimento> conhecimentosDeclarados;
+
     public FableEvaluator() {
+        this.cenasDeclaradas = new List<>();
+        this.conhecimentosDeclarados = new List<>();
     }
 
-    @Override
+    private Cena obterCenaDeclarada(String identificador) {
+        for (Cena cena : this.cenasDeclaradas)
+            if (cena.identificador.equals(identificador))
+                return cena;
+
+        throw new Exception("Cena " + identificador + " não está declarada.");
+    }
+
+    private Conhecimento obterConhecimentoDeclarado(String identificador) {
+        for (Conhecimento conhecimento : this.conhecimentosDeclarados)
+            if (conhecimento.equals(identificador))
+                return conhecimento;
+
+        throw new Exception("Conhecimento " + identificador + " não está declarado.")
+    }
+
+    @Override // => String
     public Object visitDescricao(FableGrammarParser.DescricaoContext ctx) {
         return ctx.String().toString().replace("\"", "");
     }
 
-    @Override
+    @Override // => List<Conhecimento>
     public Object visitRequisitos(FableGrammarParser.RequisitosContext ctx) {
-        List<String> identificadores = new List<>();
+        List<Conhecimento> requisitos = new List<>();
 
         if (ctx.Identificador() == null)
             return identificadores;
 
-        for (TerminalNode node : ctx.Identificador())
-            identificadores.add(node.toString());
+        for (TerminalNode node : ctx.Identificador()) {
+            String identificador = node.toString();
+            Conhecimento requisito = this.obterConhecimentoDeclarado(identificador);
+            identificadores.add(requisito);
+        }
 
-        return identificadores;
+        return requisitos;
     }
 
-    @Override
+    @Override // => Desafio
     public Object visitLembranca(FableGrammarParser.LembrancaContext ctx) {
-        String identificador = ctx.Identificador().toString();
         String texto = ctx.String().toString().replace("\"", "");
-        return new Pair<String, String>(texto, identificador);
+        String identificador = ctx.Identificador().toString();
+        Cena cena = this.obterCenaDeclarada(identificador);
+        return new Desafio(texto, cena, TipoDeDesafio.Contratempo);
     }
 
-    @Override
+    @Override // => Desafio
     public Object visitEntendimento(FableGrammarParser.EntendimentoContext ctx) {
-        String identificador = ctx.Identificador().toString();
         String texto = ctx.String().toString().replace("\"", "");
-        return new Pair<String, String>(texto, identificador);
+        String identificador = ctx.Identificador().toString();
+        Cena cena = this.obterCenaDeclarada(identificador);
+        return new Desafio(texto, cena, TipoDeDesafio.Catastrofe);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+    private void parseRequisitos(Conhecimento conhecimento, FableGrammarParser.RequisitosContext ctx) {
+        if (ctx == null)
+            return;
+
+        List<Conhecimento> requisitos = (List<Conhecimento>)this.visit(ctx);
+        if (requisitos == null)
+            return;
+
+        for (Conhecimento requisito : requisitos)
+            conhecimento.addRequisito(requisito);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void parseLembranca(Conhecimento conhecimento, FableGrammarParser.LembrancaContext ctx) {
+        if (ctx == null)
+            return;
+
+        Desafio desafio = (Desafio)this.visit(ctx);
+        if (desafio == null)
+            return;
+
+        conhecimento.addDesafio(desafio);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void parseEntendimento(Conhecimento conhecimento, FableGrammarParser.EntendimentoContext ctx) {
+        if (ctx == null)
+            return;
+
+        Desafio desafio = (Desafio)this.visit(ctx);
+        if (desafio == null)
+            return;
+
+        conhecimento.addDesafio(desafio);
+    }
+
+    @Override // => Conhecimento
     @SuppressWarnings("unchecked")
     public Object visitConhecimento(FableGrammarParser.ConhecimentoContext ctx) {
         String identificador = ctx.Identificador().toString();
         String descricao = (String)this.visit(ctx.descricao());
 
         Conhecimento conhecimento = new Conhecimento(identificador, descricao);
+        this.parseLembranca(conhecimento, ctx.lembranca());
+        this.parseRequisitos(conhecimento, ctx.requisitos());
+        this.parseEntendimento(conhecimento, ctx.entendimento());
 
-        if (ctx.requisitos() != null) {
-            List<String> requisitos = (List<String>)this.visit(ctx.requisitos());
-            if (requisitos != null) {
-                for (String requisito : requisitos)
-                    conhecimento.adicionarRequisito(requisito);
-            }
-        }
-
-        if (ctx.remember() != null) {
-            for (FableGrammarParser.RememberContext rememberContext : ctx.remember()) {
-                Pair<String, String> rememberPair = (Pair<String,String>)this.visit(rememberContext);
-                if (rememberPair == null) continue;
-                knowledge.addRemember(rememberPair.getLeft(), rememberPair.getRight());
-            }
-        }
-
-        if (ctx.understand() != null) {
-            for (FableGrammarParser.UnderstandContext understandContext : ctx.understand()) {
-                Pair<String, String> understandPair = (Pair<String,String>)this.visit(understandContext);
-                if (understandPair == null) continue;
-                knowledge.addUnderstand(understandPair.getLeft(), understandPair.getRight());
-            }
-        }
-
-        return knowledge;
+        this.conhecimentosDeclarados.add(conhecimento);
+        return conhecimento;
     }
 
-    @Override
-    public Object visitAssociations(FableGrammarParser.AssociationsContext ctx) {
-        List<String> identifiers = new List<>();
+    @Override // => List<Conhecimento>
+    public Object visitAssociacoes(FableGrammarParser.AssociacoesContext ctx) {
+        List<Conhecimento> associacoes = new List<>();
 
-        for (TerminalNode node : ctx.Identificador())
-            identifiers.add(node.toString());
+        for (TerminalNode node : ctx.Identificador()) {
+            String identificador = node.toString();
+            Conhecimento conhecimento = this.obterConhecimentoDeclarado(identificador);
+            associacoes.add(conhecimento);
+        }
 
-        return identifiers;
+        return associacoes;
+    }
+
+    @SuppressWarnings("unchecked");
+    private void parseAssociacoes(Cena cena, FableGrammarParser.AssociacoesContext ctx) {
+        if (ctx == null)
+            return;
+
+        List<Conhecimento> associacoes = (List<Conhecimento>)this.visit(ctx);
+        if (associacoes == null)
+            return;
+
+        for (Conhecimento associacao : associacoes)
+            cena.addAssociacao(associacao);
     }
 
 	@Override
-    @SuppressWarnings("unchecked")
-    public Object visitNormalScene(FableGrammarParser.NormalSceneContext ctx) {
-        String identifier = ctx.Identificador().toString();
-        String description = (String)this.visit(ctx.description());
-        Boolean isStart = false;
-        Boolean isEnd = true;
+    @SuppressWarnings("unchecked") // => Cena
+    public Object visitCenaIntermediaria(FableGrammarParser.CenIntermediariaContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String descricao = (String)this.visit(ctx.descricao());
 
-        Scene scene = new Scene(identifier, description, isStart, isEnd);
+        Cena cena = new Cena(identificador, descricao, TipoDeCena.Intermediaria);
 
-        if (ctx.associations() != null) {
-            List<String> knowledgeIdentifiers = (List<String>)this.visit(ctx.associations());
-            for (String knowledgeIdentifier : knowledgeIdentifiers)
-                scene.addKnowledgeIdentifier(knowledgeIdentifier);
-        }
-
-        return scene;
+        this.cenasDeclaradas.add(cena);
+        return cena;
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public Object visitStartScene(FableGrammarParser.StartSceneContext ctx) {
-        String identifier = ctx.Identificador().toString();
-        String description = (String)this.visit(ctx.description());
-        Boolean isStart = true;
-        Boolean isEnd = false;
+    @SuppressWarnings("unchecked") // => Cena
+    public Object visitCenaInicial(FableGrammarParser.CenaInicialContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String descricao = (String)this.visit(ctx.descricao());
 
-        Scene scene = new Scene(identifier, description, isStart, isEnd);
+        Cena cena = new Cena(identificador, descricao, TipoDeCena.Inicial);
+        this.parseAssociacoes(cena, ctx.associacoes());
 
-        List<String> knowledgeIdentifiers = null;
-        if (ctx.associations() != null)
-             knowledgeIdentifiers = (List<String>)this.visit(ctx.associations());
-
-        if (knowledgeIdentifiers != null)
-            for (String knowledgeIdentifier : knowledgeIdentifiers)
-                scene.addKnowledgeIdentifier(knowledgeIdentifier);
-
-        return scene;
+        this.cenasDeclaradas.add(cena);
+        return cena;
     }
 
     @Override
-    public Object visitEndScene(FableGrammarParser.EndSceneContext ctx) {
-        String identifier = ctx.Identificador().toString();
-        String description = (String)this.visit(ctx.description());
-        Boolean isStart = false;
-        Boolean isEnd = true;
+    @SuppressWarnings("unchecked") // => Cena
+    public Object visitCenaFinal(FableGrammarParser.CenaFinalContext ctx) {
+        String identificador = ctx.Identificador().toString();
+        String descricao = (String)this.visit(ctx.descricao());
 
-        Scene scene = new Scene(identifier, description, isStart, isEnd);
+        Cena cena = new Cena(identificador, descricao, TipoDeCena.Final);
+        this.parseAssociacoes(cena, ctx.associacoes());
 
-        return scene;
+        this.cenasDeclaradas.add(cena);
+        return cena;
     }
 
     @Override
-    public Object visitFable(FableGrammarParser.FableContext ctx) {
+    @SuppressWarnings("unchecked") // => Fabula
+    public Object visitFabula(FableGrammarParser.FabulaContext ctx) {
+        String identificador = ctx.Identificador().toString();
 
-        String identifier = ctx.Identificador().toString();
-        Fable fable = new Fable(identifier);
+        Fabula fabula = new Fabula(identificador);
 
-        for (FableGrammarParser.KnowledgeContext knowledgeContext : ctx.knowledge()) {
-            Knowledge knowledge = (Knowledge)this.visit(knowledgeContext);
-            fable.addKnowledge(knowledge);
+        int count = ctx.getChildCount();
+        for (int i = 0; i < count; i++) {
+            System.out.println(ctx.getChild(i).class + " | " + ctx.getChild(i).toString());
         }
 
-        for (FableGrammarParser.SceneContext sceneContext : ctx.scene()) {
-            Scene scene = (Scene)this.visit(sceneContext);
-            fable.addScene(scene);
-        }
-
-        return fable;
+        return fabula;
     }
 
 }

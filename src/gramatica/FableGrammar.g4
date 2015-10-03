@@ -1,34 +1,34 @@
 grammar FableGrammar;
 
 associacoes
-	: 'ASSOCIACAO' '(' Identificador+ ')'
-	;
+    : 'ASSOCIACAO' '(' Identificador+ ')'
+    ;
 
 lembranca
-	: 'LEMBRAR' String Identificador
-	;
+    : 'LEMBRAR' String Identificador
+    ;
 
 entendimento
-	: 'ENTENDER' String Identificador
-	;
+    : 'ENTENDER' String Identificador
+    ;
 
 requisitos
-	: 'REQUISITO' '(' Identificador+ ')'
-	;
+    : 'REQUISITO' '(' Identificador+ ')'
+    ;
 
 fabula
     : 'FABULA' Identificador '(' ( conhecimento | cena )+ ')' EOF
     ;
 
 cena
-	: 'CENA' Identificador '(' associacoes? descricao ')' # cenaNormal
+    : 'CENA' Identificador '(' associacoes? descricao ')' # cenaNormal
     | 'INICIO' Identificador '(' associacoes descricao ')' # cenaInicial
-	| 'FIM' Identificador '(' descricao ')' # cenaFinal
-	;
+    | 'FIM' Identificador '(' descricao ')' # cenaFinal
+    ;
 
 conhecimento
-	: 'CONHECIMENTO' Identificador '(' requisitos? ( lembranca | entendimento )* descricao ')'
-	;
+    : 'CONHECIMENTO' Identificador '(' requisitos? ( lembranca | entendimento )* descricao ')'
+    ;
 
 descricao
     : 'DESCRICAO' String
