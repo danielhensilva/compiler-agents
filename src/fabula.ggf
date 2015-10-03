@@ -1,4 +1,40 @@
-FABULA FabulaProgramandoEmCMaisMais (
+FABULA TemperaturaMotoresResponsabilidadesDependencias (
+
+    CONHECIMENTO ConhecimentoMedidasDeTemperaturaFahrenheit (
+        LEMBRAR "Fubã já ouviu falar da medida Fahrenheit." CenaLembrancaFahrenheit
+        ENTENDER "Fubã nunca ouviu falar de Fahrenheit." CenaEntenderFahrenheit
+        DESCRICAO ""
+    )
+
+    CONHECIMENTO ConhecimentoProgramaDeConversaoDeTemperatura (
+        REQUISITO (
+            ConhecimentoFormulaDeConversaoTemperatura
+            Conhecimento
+        )
+    )
+
+    INICIO CenaInicio (
+        ASSOCIACAO (
+            ConhecimentoProgramaDeConversaoDeTemperatura
+        )
+        DESCRICAO "
+            Após uma pausa para o café, o aluno Fubã retorna para sua experiência.
+            O ar-condicionado do laboratório parece desregulado e o leitor de temperatura em graus Celsius está ilegível.
+        "
+    )
+
+    FIM CenaFim (
+        DESCRICAO "
+            Fubã descobriu que se configurar o ar-condicionado para 70.7 graus Fahrenheit não passará calor.
+            E finalmente, poderá retornar a experiência.
+        "
+    )
+
+
+
+
+
+
 
     CENA CenaLembrancaSobreCaracteres (
         DESCRICAO "CenaLembrancaSobreCaracteres"

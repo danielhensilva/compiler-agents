@@ -1,12 +1,16 @@
 package agente;
 
-import communication.*;
-import planner.*;
+import comunicacao.*;
+import planejamento.*;
 
-public class GeradorDeObjetivo extends AgenteInteligente {
+public class GeradorDeObjetivo implements AgenteInteligente {
 
     public GeradorDeObjetivo(Blackboard blackboard) {
-        super(blackboard);
+    }
+
+    @Override
+    public void run() {
+
     }
 
 }

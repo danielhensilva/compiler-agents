@@ -1,12 +1,12 @@
 package agente;
 
-import communication.*;
-import domain.*;
-import grammar.*;
-import planner.*;
-import utils.*;
+import comunicacao.*;
+import dominio.*;
+import gramatica.*;
+import planejamento.*;
+import utilitarios.*;
 
-public abstract class AgenteInteligente {
+public interface AgenteInteligente {
 
     void run();
 

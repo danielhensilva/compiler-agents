@@ -1,7 +1,9 @@
-package planner;
+package planejamento;
 
-public abstract class Action {
+import comunicacao.*;
 
-	public abstract execute(Blackboard blackboard);
+public abstract class Acao {
+
+	public abstract void executar(Blackboard blackboard);
 
 }

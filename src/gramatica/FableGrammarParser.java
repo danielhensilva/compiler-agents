@@ -411,29 +411,6 @@ public class FableGrammarParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class CenaNormalContext extends CenaContext {
-		public TerminalNode Identificador() { return getToken(FableGrammarParser.Identificador, 0); }
-		public DescricaoContext descricao() {
-			return getRuleContext(DescricaoContext.class,0);
-		}
-		public AssociacoesContext associacoes() {
-			return getRuleContext(AssociacoesContext.class,0);
-		}
-		public CenaNormalContext(CenaContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof FableGrammarListener ) ((FableGrammarListener)listener).enterCenaNormal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof FableGrammarListener ) ((FableGrammarListener)listener).exitCenaNormal(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof FableGrammarVisitor ) return ((FableGrammarVisitor<? extends T>)visitor).visitCenaNormal(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class CenaInicialContext extends CenaContext {
 		public TerminalNode Identificador() { return getToken(FableGrammarParser.Identificador, 0); }
 		public AssociacoesContext associacoes() {
@@ -477,6 +454,29 @@ public class FableGrammarParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class CenaIntermediariaContext extends CenaContext {
+		public TerminalNode Identificador() { return getToken(FableGrammarParser.Identificador, 0); }
+		public DescricaoContext descricao() {
+			return getRuleContext(DescricaoContext.class,0);
+		}
+		public AssociacoesContext associacoes() {
+			return getRuleContext(AssociacoesContext.class,0);
+		}
+		public CenaIntermediariaContext(CenaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof FableGrammarListener ) ((FableGrammarListener)listener).enterCenaIntermediaria(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof FableGrammarListener ) ((FableGrammarListener)listener).exitCenaIntermediaria(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof FableGrammarVisitor ) return ((FableGrammarVisitor<? extends T>)visitor).visitCenaIntermediaria(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final CenaContext cena() throws RecognitionException {
 		CenaContext _localctx = new CenaContext(_ctx, getState());
@@ -486,7 +486,7 @@ public class FableGrammarParser extends Parser {
 			setState(76);
 			switch (_input.LA(1)) {
 			case T__7:
-				_localctx = new CenaNormalContext(_localctx);
+				_localctx = new CenaIntermediariaContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(54);

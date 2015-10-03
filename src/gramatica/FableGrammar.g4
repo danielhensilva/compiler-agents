@@ -21,7 +21,7 @@ fabula
     ;
 
 cena
-    : 'CENA' Identificador '(' associacoes? descricao ')' # cenaNormal
+    : 'CENA' Identificador '(' associacoes? descricao ')' # cenaIntermediaria
     | 'INICIO' Identificador '(' associacoes descricao ')' # cenaInicial
     | 'FIM' Identificador '(' descricao ')' # cenaFinal
     ;

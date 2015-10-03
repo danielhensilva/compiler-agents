@@ -41,12 +41,12 @@ public interface FableGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFabula(FableGrammarParser.FabulaContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code cenaNormal}
+	 * Visit a parse tree produced by the {@code cenaIntermediaria}
 	 * labeled alternative in {@link FableGrammarParser#cena}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCenaNormal(FableGrammarParser.CenaNormalContext ctx);
+	T visitCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code cenaInicial}
 	 * labeled alternative in {@link FableGrammarParser#cena}.

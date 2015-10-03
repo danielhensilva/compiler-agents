@@ -1,6 +1,6 @@
 package comunicacao;
 
-import utils.*;
+import utilitarios.*;
 
 public class Fragmento {
 

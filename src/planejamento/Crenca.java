@@ -1,11 +1,5 @@
-package planner;
+package planejamento;
 
-public abstract class Belief {
-
-	private String identifier;
-
-	public Belief(String identifier) {
-		this.identifier = identifier;
-	}
+public interface Crenca {
 
 }

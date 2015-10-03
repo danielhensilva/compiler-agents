@@ -1,12 +1,16 @@
 package agente;
 
-import communication.*;
-import planner.*;
+import comunicacao.*;
+import planejamento.*;
 
 public class GeradorDeCatastrofe implements AgenteInteligente {
 
     public GeradorDeCatastrofe(Blackboard blackboard) {
-        super(blackboard);
+    }
+
+    @Override
+    public void run() {
+
     }
 
 }

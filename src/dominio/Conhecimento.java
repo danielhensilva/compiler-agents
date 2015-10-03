@@ -27,4 +27,8 @@ public class Conhecimento {
         this.requisitos.add(conhecimento);
     }
 
+    public String getIdentificador() {
+        return this.identificador;
+    }
+
 }

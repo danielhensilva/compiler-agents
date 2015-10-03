@@ -76,13 +76,13 @@ public class FableGrammarBaseListener implements FableGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCenaNormal(FableGrammarParser.CenaNormalContext ctx) { }
+	@Override public void enterCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCenaNormal(FableGrammarParser.CenaNormalContext ctx) { }
+	@Override public void exitCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

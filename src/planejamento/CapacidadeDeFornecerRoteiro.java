@@ -1,17 +1,10 @@
-package planner;
+package planejamento;
 
-public class CapabilityOfDeliverScript extends Capability {
+import comunicacao.*;
 
-	public CapabilityOfDeliverScript(Blackboard blackboard) {
-		super(blackboard);
-		this.addGoal(new GoalToDeliverScript());
-		this.addGoal(new GoalToCleanEnvironment());
-	}
+public class CapacidadeDeFornecerRoteiro implements Capacidade {
 
-	@Override
-	public BeliefSet generateBeliefSet() {
-		Blackboard blackboard = this.getBlackboard();
-		// TODO ???
+	public CapacidadeDeFornecerRoteiro(Blackboard blackboard) {
 	}
 
 }

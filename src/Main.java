@@ -2,20 +2,20 @@ import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import agente.*;
-import communication.*;
-import domain.*;
-import grammar.*;
-import planner.*;
-import utils.*;
+import comunicacao.*;
+import dominio.*;
+import gramatica.*;
+import planejamento.*;
+import utilitarios.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Fable fable = parse("../src/input.fg");
-        
+        Fabula fabula = parse("../src/fabula.ggf");
+
     }
 
-    private static Fable parse(String filePath) {
+    private static Fabula parse(String filePath) {
         try {
             FableGrammarLexer lexer = new FableGrammarLexer(new ANTLRFileStream(filePath));
             FableGrammarParser parser = new FableGrammarParser(new CommonTokenStream(lexer));
@@ -23,11 +23,11 @@ public class Main {
             // parser.setBuildParseTree(true);
             // parser.removeErrorListeners();
 
-            ParseTree parseTree = parser.fable();
+            ParseTree parseTree = parser.fabula();
             FableEvaluator evaluator = new FableEvaluator();
-            Fable fable = (Fable)evaluator.visit(parseTree);
+            Fabula fabula = (Fabula)evaluator.visit(parseTree);
 
-            return fable;
+            return fabula;
         }
         catch (Exception exception) {
             System.out.println("Exception : " + exception);
@@ -35,12 +35,12 @@ public class Main {
         }
     }
 
-    private static List<IntelligentAgent> createIntelligentAgents() {
-        List<IntelligentAgent> agents = new List<>();
+    private static List<AgenteInteligente> criarAgentes() {
+        List<AgenteInteligente> agentes = new List<>();
 
 
 
-        return agents;
+        return agentes;
     }
 
 }

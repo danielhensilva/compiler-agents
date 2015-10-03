@@ -1,19 +1,10 @@
-package planner;
+package planejamento;
 
-public class CapabilityOfCallNarrativeFragment extends Capability {
+import comunicacao.*;
 
-	public CapabilityOfTranslateKnowledge(Blackboard blackboard) {
-		super(blackboard);
-		this.addGoal(new GoalToCallForObjetive());
-		this.addGoal(new GoalToCallForConflict());
-		this.addGoal(new GoalToCallForCatastrophe());
-		this.addGoal(new GoalToCallForDecision());
-	}
+public class CapacidadeDeChamarOrdemNarrativa implements Capacidade {
 
-	@Override
-	public BeliefSet generateBeliefSet() {
-		Blackboard blackboard = this.getBlackboard();
-		// TODO ???
+	public CapacidadeDeChamarOrdemNarrativa(Blackboard blackboard) {
 	}
 
 }

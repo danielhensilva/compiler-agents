@@ -52,7 +52,7 @@ public class FableGrammarBaseVisitor<T> extends AbstractParseTreeVisitor<T> impl
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCenaNormal(FableGrammarParser.CenaNormalContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

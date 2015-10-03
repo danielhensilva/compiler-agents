@@ -1,6 +1,6 @@
 package comunicacao;
 
-import utilitario.*;
+import utilitarios.*;
 
 public class Blackboard {
 

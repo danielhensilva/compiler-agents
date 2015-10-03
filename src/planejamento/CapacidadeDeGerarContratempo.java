@@ -1,16 +1,10 @@
-package planner;
+package planejamento;
 
-public class CapabilityOfGenerateConflict extends Capability {
+import comunicacao.*;
 
-	public CapabilityOfGenerateConflict(Blackboard blackboard) {
-		super(blackboard);
-		this.addGoal(new GoalToGenerateConflict());
-	}
+public class CapacidadeDeGerarContratempo implements Capacidade {
 
-	@Override
-	public BeliefSet generateBeliefSet() {
-		Blackboard blackboard = this.getBlackboard();
-		// TODO ???
+	public CapacidadeDeGerarContratempo(Blackboard blackboard) {
 	}
 
 }

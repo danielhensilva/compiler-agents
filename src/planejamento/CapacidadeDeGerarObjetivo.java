@@ -1,16 +1,10 @@
-package planner;
+package planejamento;
 
-public class CapabilityOfGenerateObjective extends Capability {
+import comunicacao.*;
 
-	public CapabilityOfGenerateObjective(Blackboard blackboard) {
-		super(blackboard);
-		this.addGoal(new GoalToGenerateObjetive());
-	}
+public class CapacidadeDeGerarObjetivo implements Capacidade {
 
-	@Override
-	public BeliefSet generateBeliefSet() {
-		Blackboard blackboard = this.getBlackboard();
-		// TODO ???
+	public CapacidadeDeGerarObjetivo(Blackboard blackboard) {
 	}
 
 }

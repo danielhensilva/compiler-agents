@@ -1,12 +1,16 @@
 package agente;
 
-import communication.*;
-import planner.*;
+import comunicacao.*;
+import planejamento.*;
 
-public class GeradorDeConflito extends AgenteInteligente {
+public class GeradorDeConflito implements AgenteInteligente {
 
     public GeradorDeConflito(Blackboard blackboard) {
-        super(blackboard);
+    }
+
+    @Override
+    public void run() {
+
     }
 
 }

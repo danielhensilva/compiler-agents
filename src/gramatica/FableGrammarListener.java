@@ -58,17 +58,17 @@ public interface FableGrammarListener extends ParseTreeListener {
 	 */
 	void exitFabula(FableGrammarParser.FabulaContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code cenaNormal}
+	 * Enter a parse tree produced by the {@code cenaIntermediaria}
 	 * labeled alternative in {@link FableGrammarParser#cena}.
 	 * @param ctx the parse tree
 	 */
-	void enterCenaNormal(FableGrammarParser.CenaNormalContext ctx);
+	void enterCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code cenaNormal}
+	 * Exit a parse tree produced by the {@code cenaIntermediaria}
 	 * labeled alternative in {@link FableGrammarParser#cena}.
 	 * @param ctx the parse tree
 	 */
-	void exitCenaNormal(FableGrammarParser.CenaNormalContext ctx);
+	void exitCenaIntermediaria(FableGrammarParser.CenaIntermediariaContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code cenaInicial}
 	 * labeled alternative in {@link FableGrammarParser#cena}.

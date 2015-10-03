@@ -1,12 +1,16 @@
 package agente;
 
-import communication.*;
-import planner.*;
+import comunicacao.*;
+import planejamento.*;
 
-public class Maestro extends AgenteInteligente {
+public class Maestro implements AgenteInteligente {
 
     public Maestro(Blackboard blackboard) {
-        super(blackboard);
+    }
+
+    @Override
+    public void run() {
+
     }
 
 }
