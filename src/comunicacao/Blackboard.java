@@ -8,6 +8,8 @@ public class Blackboard {
 
     private List<Evento> eventos;
 
+    private Fabula fabula;
+
     public Blackboard() {
         this.fragmentos = new List<>();
         this.eventos = new List<>();
@@ -15,6 +17,10 @@ public class Blackboard {
 
     public void adicionarFragmento(Fragmento fragmento) {
         this.fragmentos.add(fragmento);
+    }
+
+    public void atribuirFabula(Fabula fabula) {
+        this.fabula = fabula;
     }
 
     public void cadastrarEvento(TipoDeEvento tipo) {

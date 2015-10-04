@@ -5,7 +5,7 @@ export CLASSPATH=".:/usr/local/lib/antlr-4.5.1-complete.jar"
 
 echo Generating parser...
 pushd src/grammar
-java org.antlr.v4.Tool -visitor -listener -package grammar FableGrammar.g4
+java org.antlr.v4.Tool -visitor -listener -package gramatica FableGrammar.g4
 popd
 
 echo Cleaning bin folder...

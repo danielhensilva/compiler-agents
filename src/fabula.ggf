@@ -37,7 +37,7 @@ FABULA TemperaturaMotoresResponsabilidadesDependencias (
     )
 
     CONHECIMENTO ConhecimentoMetodoEmJava (
-        DESCRICAO "<ConhecimentoMetodoEmJava>"
+        DESCRICAO "<ConhecimentoMetodoEmJava - omitido no protótipo>"
     )
 
     CENA CenaLembrarMetodoEmJava (
@@ -51,7 +51,7 @@ FABULA TemperaturaMotoresResponsabilidadesDependencias (
     )
 
     CONHECIMENTO ConhecimentoClasseEmJava (
-        DESCRICAO "<ConhecimentoClasseEmJava>"
+        DESCRICAO "<ConhecimentoClasseEmJava - omitido no protótipo>"
     )
 
     CENA CenaLembrarClasseEmJava (
@@ -65,14 +65,14 @@ FABULA TemperaturaMotoresResponsabilidadesDependencias (
     )
 
     CONHECIMENTO ConhecimentoLinguagemDeProgramacaoJava (
-        DESCRICAO "<ConhecimentoClasseEmJava>"
+        DESCRICAO "<ConhecimentoClasseEmJava - omitido no protótipo>"
     )
 
     CENA CenaEntenderLinguagemJava (
         ASSOCIACAO (
             ConhecimentoLinguagemDeProgramacaoJava
             ConhecimentoMetodoEmJava
-            CenaLembrarClasseEmJava
+            ConhecimentoClasseEmJava
         )
         DESCRICAO "
             Fubã não sabe por onde começar a aprender Java.

@@ -1,10 +1,16 @@
 package planejamento;
 
 import comunicacao.*;
+import utilitarios.*;
 
 public class CapacidadeDeGerarCatastrofe implements Capacidade {
 
-	public CapacidadeDeGerarCatastrofe(Blackboard blackboard) {
-	}
+    private List<Objetivo> objetivos;
 
+	public CapacidadeDeGerarCatastrofe() {
+        this.objetivos = new List<>();
+
+        Objetivo o1 = new ObjetivoDeGerarCatastrofe();
+        this.objetivos.add(o1)
+    }
 }

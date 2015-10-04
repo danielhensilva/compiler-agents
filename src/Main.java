@@ -12,7 +12,6 @@ public class Main {
 
     public static void main(String[] args) {
         Fabula fabula = parse("../src/fabula.ggf");
-
     }
 
     private static Fabula parse(String filePath) {
@@ -30,7 +29,7 @@ public class Main {
             return fabula;
         }
         catch (Exception exception) {
-            System.out.println("Exception : " + exception);
+            System.out.println("Erro!!! " + exception);
             return null;
         }
     }

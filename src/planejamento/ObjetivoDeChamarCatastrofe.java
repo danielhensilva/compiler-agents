@@ -2,14 +2,14 @@ package planejamento;
 
 import utilitarios.*;
 
-public class ObjetivoDeGerarDecisao implements Objetivo {
+public class ObjetivoDeChamarCatastrofe implements Objetivo {
 
     private List<Plano> planos;
 
-    public ObjetivoDeGerarDecisao() {
+    public ObjetivoDeChamarCatastrofe() {
         this.planos = new List<>();
 
-        Plano p1 = new PlanoDeGerarDecisao();
+        Plano p1 = new PlanoDeChamarCatastrofe();
         this.planos.add(p1);
     }
 
