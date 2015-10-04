@@ -10,11 +10,11 @@ public class GeradorDeContratempo implements AgenteInteligente {
 
     private List<Capacidade> capacidades;
 
-    public GeradorDeConflito(Blackboard blackboard) {
+    public GeradorDeContratempo(Blackboard blackboard) {
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
-        Capacidade c1 = new CapacidadadeDeGerarContratempo();
+        Capacidade c1 = new CapacidadeDeGerarContratempo();
         this.capacidades.add(c1);
     }
 

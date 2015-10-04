@@ -11,7 +11,7 @@ public class CapacidadeDeGerarDecisao implements Capacidade {
         this.objetivos = new List<>();
 
         Objetivo o1 = new ObjetivoDeGerarDecisao();
-        this.objetivos.add(o1)
+        this.objetivos.add(o1);
     }
 
 }

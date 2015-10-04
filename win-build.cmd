@@ -1,7 +1,7 @@
 @echo off
 
 ECHO Killing java...
-powershell kill -name "java"
+powershell kill -name "java" -ErrorAction SilentlyContinue
 
 ECHO Cleaning bin folder...
 RMDIR bin /S /Q

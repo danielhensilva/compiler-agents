@@ -11,6 +11,6 @@ public class CapacidadeDeGerarCatastrofe implements Capacidade {
         this.objetivos = new List<>();
 
         Objetivo o1 = new ObjetivoDeGerarCatastrofe();
-        this.objetivos.add(o1)
+        this.objetivos.add(o1);
     }
 }

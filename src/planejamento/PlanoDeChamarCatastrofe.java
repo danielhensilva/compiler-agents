@@ -1,5 +1,6 @@
 package planejamento;
 
+import comunicacao.*;
 import utilitarios.*;
 
 public class PlanoDeChamarCatastrofe implements Plano {
@@ -12,11 +13,11 @@ public class PlanoDeChamarCatastrofe implements Plano {
 
     @Override
     public boolean aplicavel(List<Crenca> crencas) {
-
+        return false;
     }
 
     @Override
-    public boolean executar(Blackboard blackboard) {
+    public void executar(Blackboard blackboard) {
 
     }
 

@@ -1,5 +1,7 @@
 package planejamento;
 
+import comunicacao.*;
+import comunicacao.*;
 import utilitarios.*;
 
 public class PlanoDeGerarObjetivo implements Plano {
@@ -12,11 +14,11 @@ public class PlanoDeGerarObjetivo implements Plano {
 
     @Override
     public boolean aplicavel(List<Crenca> crencas) {
-
+        return false;
     }
 
     @Override
-    public boolean executar(Blackboard blackboard) {
+    public void executar(Blackboard blackboard) {
 
     }
 

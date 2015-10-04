@@ -1,5 +1,6 @@
 package planejamento;
 
+import comunicacao.*;
 import utilitarios.*;
 
 public interface Plano {

@@ -13,7 +13,7 @@ public class Maestro implements AgenteInteligente {
     public Maestro(Blackboard blackboard) {
         this.blackboard = blackboard;
         this.capacidades = new List<>();
-        
+
         Capacidade c1 = new CapacidadeDeConduzirOrdemNarrativa();
         this.capacidades.add(c1);
 

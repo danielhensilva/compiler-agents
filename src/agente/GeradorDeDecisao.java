@@ -2,6 +2,7 @@ package agente;
 
 import comunicacao.*;
 import planejamento.*;
+import utilitarios.*;
 
 public class GeradorDeDecisao implements AgenteInteligente {
 
@@ -13,7 +14,7 @@ public class GeradorDeDecisao implements AgenteInteligente {
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
-        Capacidade c1 = new CapacidadadeDeGerarDecisao();
+        Capacidade c1 = new CapacidadeDeGerarDecisao();
         this.capacidades.add(c1);
     }
 

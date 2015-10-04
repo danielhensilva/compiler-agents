@@ -14,7 +14,7 @@ public class GeradorDeCatastrofe implements AgenteInteligente {
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
-        Capacidade c1 = new CapacidadadeDeGerarCatastrofe();
+        Capacidade c1 = new CapacidadeDeGerarCatastrofe();
         this.capacidades.add(c1);
     }
 

@@ -11,7 +11,7 @@ public class CapacidadeDeGerarContratempo implements Capacidade {
         this.objetivos = new List<>();
 
         Objetivo o1 = new ObjetivoDeGerarContratempo();
-        this.objetivos.add(o1)
+        this.objetivos.add(o1);
     }
 
 }

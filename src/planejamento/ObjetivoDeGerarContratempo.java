@@ -18,12 +18,12 @@ public class ObjetivoDeGerarContratempo implements Objetivo {
 
     @Override
     public boolean estadoAtual(List<Crenca> crencas) {
-
+        return false;
     }
 
     @Override
     public boolean estadoFuturo(List<Crenca> crencas) {
-
+        return false;
     }
 
 }

@@ -11,7 +11,7 @@ public class CapacidadeDeGerarObjetivo implements Capacidade {
         this.objetivos = new List<>();
 
         Objetivo o1 = new ObjetivoDeGerarObjetivo();
-        this.objetivos.add(o1)
+        this.objetivos.add(o1);
     }
 
 }

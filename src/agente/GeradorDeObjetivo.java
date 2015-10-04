@@ -14,7 +14,7 @@ public class GeradorDeObjetivo implements AgenteInteligente {
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
-        Capacidade c1 = new CapacidadadeDeGerarObjetivo();
+        Capacidade c1 = new CapacidadeDeGerarObjetivo();
         this.capacidades.add(c1);
     }
 
