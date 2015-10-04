@@ -14,4 +14,12 @@ public class CapacidadeDeGerarDecisao implements Capacidade {
         this.objetivos.add(o1);
     }
 
+    public List<Objetivo> obterObjetivos() {
+        return this.objetivos;
+    }
+
+    public List<Crenca> calcularCrencas(Blackboard blackboard) {
+        return new List<Crenca>();
+    }
+
 }

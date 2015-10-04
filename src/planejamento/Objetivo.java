@@ -4,8 +4,10 @@ import utilitarios.*;
 
 public interface Objetivo {
 
-    boolean estadoAtual(List<Crenca> crencas);
+    List<Plano> obterPlanos();
 
-    boolean estadoFuturo(List<Crenca> crencas);
+    boolean compativelComEstadoAtual(List<Crenca> crencas);
+
+    boolean estaEmEstadoFuturo(List<Crenca> crencas);
 
 }

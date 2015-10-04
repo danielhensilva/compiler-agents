@@ -19,5 +19,3 @@ echo Executing...
 pushd bin
 java Main
 popd
-
-echo Everything done!

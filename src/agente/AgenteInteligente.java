@@ -1,7 +1,5 @@
 package agente;
 
-public interface AgenteInteligente {
-
-    void run();
+public interface AgenteInteligente extends Runnable {
 
 }

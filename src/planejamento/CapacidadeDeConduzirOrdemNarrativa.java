@@ -23,4 +23,12 @@ public class CapacidadeDeConduzirOrdemNarrativa implements Capacidade {
         this.objetivos.add(o4);
 	}
 
+    public List<Objetivo> obterObjetivos() {
+        return this.objetivos;
+    }
+
+    public List<Crenca> calcularCrencas(Blackboard blackboard) {
+        return new List<Crenca>();
+    }
+
 }

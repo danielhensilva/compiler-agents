@@ -13,13 +13,15 @@ public class ObjetivoDeGerarObjetivo implements Objetivo {
         this.planos.add(p1);
     }
 
-    @Override
-    public boolean estadoAtual(List<Crenca> crencas) {
+    public List<Plano> obterPlanos() {
+        return this.planos;
+    }
+
+    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
         return false;
     }
 
-    @Override
-    public boolean estadoFuturo(List<Crenca> crencas) {
+    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
         return false;
     }
 

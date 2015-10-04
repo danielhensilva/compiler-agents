@@ -22,5 +22,3 @@ ECHO Executing...
 PUSHD bin
 JAVA Main
 POPD
-
-ECHO Everything done!
