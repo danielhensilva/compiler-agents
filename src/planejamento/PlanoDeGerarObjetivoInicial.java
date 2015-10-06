@@ -1,11 +1,22 @@
 package planejamento;
 
 import comunicacao.*;
+import dominio.*;
 import utilitarios.*;
 
-public class PlanoDeGerarContratempo implements Plano {
+public class PlanoDeGerarObjetivoInicial implements Plano {
+
+    public PlanoDeGerarObjetivoInicial() {
+
+    }
 
     public boolean aplicavel(List<Crenca> crencas) {
+
+        // Tem fragmento
+        CrencaColecaoDeFragmentos crenca  = crencas.getByType(CrencaColecaoDeFragmentos.class);
+        if (crenca != null || crenca.obterFragmentos().size() > 0)
+            return false;
+
         return true;
     }
 

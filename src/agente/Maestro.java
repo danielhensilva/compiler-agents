@@ -6,11 +6,14 @@ import utilitarios.*;
 
 public class Maestro implements AgenteInteligente {
 
+    private boolean ativado;
+
     private Blackboard blackboard;
 
     private List<Capacidade> capacidades;
 
     public Maestro(Blackboard blackboard) {
+        this.ativado = true;
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
@@ -21,8 +24,12 @@ public class Maestro implements AgenteInteligente {
         this.capacidades.add(c2);
     }
 
+    public void interromper() {
+        this.ativado = false;
+    }
+
     public void run() {
-        while (true) {
+        while (this.ativado) {
             this.executarCapacidades(this.capacidades);
         }
     }

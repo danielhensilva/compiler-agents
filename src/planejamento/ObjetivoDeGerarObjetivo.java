@@ -9,8 +9,14 @@ public class ObjetivoDeGerarObjetivo implements Objetivo {
     public ObjetivoDeGerarObjetivo() {
         this.planos = new List<>();
 
-        Plano p1 = new PlanoDeGerarObjetivo();
+        Plano p1 = new PlanoDeGerarObjetivoInicial();
         this.planos.add(p1);
+
+        Plano p2 = new PlanoDeGerarObjetivoIntermediario();
+        this.planos.add(p2);
+
+        Plano p3 = new PlanoDeGerarConclusaoDeObjetivos();
+        this.planos.add(p3);
     }
 
     public List<Plano> obterPlanos() {
@@ -18,6 +24,9 @@ public class ObjetivoDeGerarObjetivo implements Objetivo {
     }
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+        for (Crenca c : crencas)
+            // Evento objetivo
+            return true;
         return false;
     }
 

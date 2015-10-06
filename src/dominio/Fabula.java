@@ -20,8 +20,16 @@ public class Fabula {
         this.cenas.add(cena);
     }
 
+    public List<Cena> obterCenas() {
+        return this.cenas;
+    }
+
     public void adicionarConhecimento(Conhecimento conhecimento) {
         this.conhecimentos.add(conhecimento);
+    }
+
+    public List<Conhecimento> obterConhecimento() {
+        return this.conhecimentos;
     }
 
 }

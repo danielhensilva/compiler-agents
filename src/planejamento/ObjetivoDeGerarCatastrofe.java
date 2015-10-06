@@ -18,6 +18,9 @@ public class ObjetivoDeGerarCatastrofe implements Objetivo {
     }
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+        for (Crenca c : crencas)
+            // Evento de catástrofe
+            return true;
         return false;
     }
 

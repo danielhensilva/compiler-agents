@@ -6,11 +6,14 @@ import utilitarios.*;
 
 public class GeradorDeCatastrofe implements AgenteInteligente {
 
+    private boolean ativado;
+
     private Blackboard blackboard;
 
     private List<Capacidade> capacidades;
 
     public GeradorDeCatastrofe(Blackboard blackboard) {
+        this.ativado = true;
         this.blackboard = blackboard;
         this.capacidades = new List<>();
 
@@ -18,8 +21,12 @@ public class GeradorDeCatastrofe implements AgenteInteligente {
         this.capacidades.add(c1);
     }
 
+    public void interromper() {
+        this.ativado = false;
+    }
+
     public void run() {
-        while (true) {
+        while (this.ativado) {
             this.executarCapacidades(this.capacidades);
         }
     }

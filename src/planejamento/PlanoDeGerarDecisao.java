@@ -5,20 +5,16 @@ import utilitarios.*;
 
 public class PlanoDeGerarDecisao implements Plano {
 
-    private List<Acao> acoes;
-
     public PlanoDeGerarDecisao() {
-        this.acoes = new List<>();
+
     }
 
-    @Override
     public boolean aplicavel(List<Crenca> crencas) {
-        return false;
+        return true;
     }
 
-    @Override
     public void executar(Blackboard blackboard) {
-
+        blackboard.atribuirEvento(null);
     }
 
 }

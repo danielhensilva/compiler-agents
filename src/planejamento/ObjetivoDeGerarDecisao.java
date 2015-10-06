@@ -18,6 +18,9 @@ public class ObjetivoDeGerarDecisao implements Objetivo {
     }
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+        for (Crenca c : crencas)
+            // Evento decisão
+            return true;
         return false;
     }
 

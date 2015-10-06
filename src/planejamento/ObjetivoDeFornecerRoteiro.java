@@ -18,6 +18,9 @@ public class ObjetivoDeFornecerRoteiro implements Objetivo {
     }
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+        for (Crenca c : crencas)
+            // Cena final foi visitada
+            return true;
         return false;
     }
 

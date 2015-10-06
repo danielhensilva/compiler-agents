@@ -10,20 +10,32 @@ public class Cena {
 
     private String descricao;
 
-    private TipoDeCena tipoDeCena;
+    private TipoDeCena tipo;
 
-    public Cena(String identificador, String descricao, TipoDeCena tipoDeCena) {
+    public Cena(String identificador, String descricao, TipoDeCena tipo) {
         this.identificador = identificador;
         this.associacoes = new List<>();
         this.descricao = descricao;
-        this.tipoDeCena = tipoDeCena;
+        this.tipo = tipo;
     }
 
-    public void addAssociacao(Conhecimento associacao) {
+    public void adicionarAssociacao(Conhecimento associacao) {
         this.associacoes.add(associacao);
     }
 
-    public String getIdentificador() {
+    public List<Conhecimento> obterAssociacoes() {
+        return this.associacoes;
+    }
+
+    public String obterDescricao() {
+        return this.descricao;
+    }
+
+    public TipoDeCena obterTipo() {
+        return this.tipo;
+    }
+
+    public String obterIdentificador() {
         return this.identificador;
     }
 

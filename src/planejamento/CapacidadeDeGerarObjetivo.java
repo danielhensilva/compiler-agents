@@ -19,7 +19,17 @@ public class CapacidadeDeGerarObjetivo implements Capacidade {
     }
 
     public List<Crenca> calcularCrencas(Blackboard blackboard) {
-        return new List<Crenca>();
+        List<Crenca> crencas = new List<Crenca>();
+
+        CrencaColecaoDeFragmentos c1 = new CrencaColecaoDeFragmentos();
+        if (c1.aplicavel(blackboard))
+            crencas.add(c1);
+
+        CrencaColecaoDeConhecimentosPendentes c2 = new CrencaColecaoDeConhecimentosPendentes();
+        if (c2.aplicavel(blackboard))
+            crencas.add(c2);
+
+        return crencas;
     }
 
 }

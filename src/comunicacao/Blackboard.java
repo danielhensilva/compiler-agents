@@ -7,35 +7,76 @@ public class Blackboard {
 
     private List<Fragmento> fragmentos;
 
-    private List<Evento> eventos;
+    private Evento evento;
 
     private Fabula fabula;
 
+    private List<Object> pilhaDeExecucao;
+
+    private List<Conhecimento> conhecimentosNecessarios;
+
+    private List<Conhecimento> conhecimentosAdquiridos;
+
     public Blackboard() {
         this.fragmentos = new List<>();
-        this.eventos = new List<>();
+        this.pilhaDeExecucao = new List<>();
+        this.conhecimentosNecessarios = new List<>();
+        this.conhecimentosAdquiridos = new List<>();
     }
 
     public void adicionarFragmento(Fragmento fragmento) {
         this.fragmentos.add(fragmento);
     }
 
+    public List<Fragmento> obterFragmentos() {
+        return this.fragmentos;
+    }
+
+    public void atribuirEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public Evento obterEvento() {
+        return this.evento;
+    }
+
     public void atribuirFabula(Fabula fabula) {
         this.fabula = fabula;
     }
 
-    public void cadastrarEvento(TipoDeEvento tipo) {
-        Evento evento = new Evento(tipo);
-        this.eventos.add(evento);
+    public Fabula obterFabula() {
+        return this.fabula;
     }
 
-    public Evento consumirEvento(TipoDeEvento tipo) {
-        for (Evento evento : this.eventos)
-            if (tipo == evento.obterTipo()) {
-                this.eventos.remove(evento);
-                return evento;
-            }
-        return null;
+    public void adicionarNaPilhaDeExecucao(Object elemento) {
+        this.pilhaDeExecucao.add(elemento);
     }
 
+    public void removerDaPilhaDeExecucao() {
+        this.pilhaDeExecucao.removeLast();
+    }
+
+    public Object obterDaPilhaDeExecucao() {
+        return this.pilhaDeExecucao.getLastItem();
+    }
+
+    public void adicionarConhecimentoNecessario(Conhecimento conhecimento) {
+        this.conhecimentosNecessarios.add(conhecimento);
+    }
+
+    public void removerConhecimentoNecesario(Conhecimento conhecimento) {
+        this.conhecimentosNecessarios.remove(conhecimento);
+    }
+
+    public List<Conhecimento> obterConhecimentosNecessarios() {
+        return this.conhecimentosNecessarios;
+    }
+
+    public void adicionarConhecimentoAdquirido(Conhecimento conhecimento) {
+        this.conhecimentosAdquiridos.add(conhecimento);
+    }
+
+    public List<Conhecimento> obterConhecimentosAdquiridos() {
+        return this.conhecimentosAdquiridos;
+    }
 }

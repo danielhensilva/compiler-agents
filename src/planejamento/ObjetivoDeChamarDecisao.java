@@ -18,6 +18,11 @@ public class ObjetivoDeChamarDecisao implements Objetivo {
     }
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+        for (Crenca c : crencas)
+            // Roteiro não está pronto
+            // Último fragmento é contratempo ou catastrofe
+            // Não tem evento
+            return true;
         return false;
     }
 

@@ -31,7 +31,7 @@ public class Main {
             Blackboard blackboard = criarBlackboard(fabula);
             AgenteInteligente[] agentes = criarAgentes(blackboard);
 
-            ativarAgentes(agentes);
+            // ativarAgentes(agentes);
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -69,6 +69,13 @@ public class Main {
 
         for (Runnable agente : agentes)
             service.submit(agente, true);
+
+            /*
+            File f = new File("roteiro.txt");
+            if(f.exists() && !f.isDirectory()) {
+                // do something
+            }
+            */
 
         for (int i = 0; i < agentes.length; i++)
             service.take();

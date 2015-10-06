@@ -17,7 +17,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
     private Cena obterCenaDeclarada(String identificador) {
         for (Cena cena : this.cenasDeclaradas)
-            if (cena.getIdentificador().equals(identificador))
+            if (cena.obterIdentificador().equals(identificador))
                 return cena;
 
         throw new RuntimeException("Cena " + identificador + " não está declarada.");
@@ -25,7 +25,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 
     private Conhecimento obterConhecimentoDeclarado(String identificador) {
         for (Conhecimento conhecimento : this.conhecimentosDeclarados)
-            if (conhecimento.getIdentificador().equals(identificador))
+            if (conhecimento.obterIdentificador().equals(identificador))
                 return conhecimento;
 
         throw new RuntimeException("Conhecimento " + identificador + " não está declarado.");
@@ -151,7 +151,7 @@ public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
             return;
 
         for (Conhecimento associacao : associacoes)
-            cena.addAssociacao(associacao);
+            cena.adicionarAssociacao(associacao);
     }
 
 	@Override
