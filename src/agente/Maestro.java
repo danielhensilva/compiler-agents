@@ -8,13 +8,10 @@ public class Maestro implements AgenteInteligente {
 
     private boolean ativado;
 
-    private Blackboard blackboard;
-
     private List<Capacidade> capacidades;
 
-    public Maestro(Blackboard blackboard) {
+    public Maestro() {
         this.ativado = true;
-        this.blackboard = blackboard;
         this.capacidades = new List<>();
 
         Capacidade c1 = new CapacidadeDeConduzirOrdemNarrativa();
@@ -24,49 +21,59 @@ public class Maestro implements AgenteInteligente {
         this.capacidades.add(c2);
     }
 
-    public void interromper() {
+    public void parar() {
         this.ativado = false;
     }
 
-    public void run() {
-        while (this.ativado) {
-            this.executarCapacidades(this.capacidades);
-        }
+    public void iniciar() {
+        this.ativado = true;
     }
 
-    private void executarCapacidades(List<Capacidade> capacidades) {
+    public void executar() {
+        Blackboard blackboard = Blackboard.obterInstancia();
+
         for (Capacidade capacidade : capacidades) {
-            List<Crenca> crencas = capacidade.calcularCrencas(this.blackboard);
-            this.executarCapacidade(crencas, capacidade);
+            this.print(capacidade);
+
+            List<Crenca> crencas = capacidade.calcularCrencas(blackboard);
+            this.print(crencas);
+
+            List<Objetivo> objetivos = capacidade.obterObjetivos();
+            this.print(objetivos);
+
+            for (Objetivo objetivo : objetivos) {
+
+                if (objetivo.estadoAtual(crencas) && !objetivo.estadoFuturo(crencas)) {
+                    this.print(objetivo, "aplicavel");
+
+                    List<Plano> planos = objetivo.obterPlanos();
+
+                    for (Plano plano : planos) {
+                        if (plano.aplicavel(crencas)) {
+                            this.print(plano, "aplicavel");
+                            plano.executar(blackboard);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    private void executarCapacidade(List<Crenca> crencas, Capacidade capacidade) {
-        List<Objetivo> objetivos = capacidade.obterObjetivos();
-        this.executarObjetivos(crencas, objetivos);
+    public void run() {
+        while (this.ativado)
+            this.executar();
     }
 
-    private void executarObjetivos(List<Crenca> crencas, List<Objetivo> objetivos) {
-        for (Objetivo objetivo : objetivos)
-            this.executarObjetivo(crencas, objetivo);
+    private <Q> void print(List<Q> objs) {
+        for (Q o : objs)
+            this.print(o);
     }
 
-    private void executarObjetivo(List<Crenca> crencas, Objetivo objetivo) {
-        if (objetivo.compativelComEstadoAtual(crencas))
-            if (!objetivo.estaEmEstadoFuturo(crencas)) {
-                List<Plano> planos = objetivo.obterPlanos();
-                this.executarPlanos(crencas, planos);
-            }
+    private void print(Object obj) {
+        System.out.println(this.getClass().getSimpleName() + " : " + obj.getClass().getSimpleName());
     }
 
-    private void executarPlanos(List<Crenca> crencas, List<Plano> planos) {
-        for (Plano plano : planos)
-            this.executarPlano(crencas, plano);
+    private void print(Object obj, String message) {
+        System.out.println(this.getClass().getSimpleName() + " : " + obj.getClass().getSimpleName() + " : " + message);
     }
-
-    private void executarPlano(List<Crenca> crencas, Plano plano) {
-        if (plano.aplicavel(crencas))
-            plano.executar(this.blackboard);
-    }
-
 }

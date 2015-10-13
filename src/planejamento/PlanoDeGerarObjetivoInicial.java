@@ -1,7 +1,7 @@
 package planejamento;
 
 import comunicacao.*;
-import dominio.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class PlanoDeGerarObjetivoInicial implements Plano {

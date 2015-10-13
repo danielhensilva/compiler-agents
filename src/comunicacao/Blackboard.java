@@ -1,6 +1,6 @@
 package comunicacao;
 
-import dominio.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class Blackboard {
@@ -17,11 +17,20 @@ public class Blackboard {
 
     private List<Conhecimento> conhecimentosAdquiridos;
 
-    public Blackboard() {
+    private static Blackboard instancia;
+
+    private Blackboard() {
         this.fragmentos = new List<>();
         this.pilhaDeExecucao = new List<>();
         this.conhecimentosNecessarios = new List<>();
         this.conhecimentosAdquiridos = new List<>();
+    }
+
+    public synchronized static Blackboard obterInstancia() {
+        if (instancia == null)
+            instancia = new Blackboard();
+
+        return instancia;
     }
 
     public void adicionarFragmento(Fragmento fragmento) {

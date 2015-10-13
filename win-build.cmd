@@ -16,7 +16,7 @@ JAVA org.antlr.v4.Tool -visitor -listener -package gramatica FableGrammar.g4
 POPD
 
 ECHO Compiling project...
-JAVAC -d bin -Xlint:unchecked src/agente/*.java src/comunicacao/*.java src/dominio/*.java src/gramatica/*.java src/planejamento/*.java src/utilitario/*.java src/*.java
+JAVAC -d bin -Xlint:unchecked src/agente/*.java src/comunicacao/*.java src/gramatica/*.java src/planejamento/*.java src/utilitario/*.java src/*.java
 
 ECHO Executing...
 PUSHD bin

@@ -17,14 +17,14 @@ public class ObjetivoDeGerarCatastrofe implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+    public boolean estadoAtual(List<Crenca> crencas) {
         for (Crenca c : crencas)
             // Evento de catástrofe
             return true;
         return false;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
+    public boolean estadoFuturo(List<Crenca> crencas) {
         return false;
     }
 

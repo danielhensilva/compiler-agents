@@ -1,6 +1,7 @@
 package planejamento;
 
 import comunicacao.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class PlanoDeGerarContratempo implements Plano {

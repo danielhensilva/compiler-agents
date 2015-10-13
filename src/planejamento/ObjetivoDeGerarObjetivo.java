@@ -23,14 +23,14 @@ public class ObjetivoDeGerarObjetivo implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+    public boolean estadoAtual(List<Crenca> crencas) {
         for (Crenca c : crencas)
             // Evento objetivo
             return true;
         return false;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
+    public boolean estadoFuturo(List<Crenca> crencas) {
         return false;
     }
 

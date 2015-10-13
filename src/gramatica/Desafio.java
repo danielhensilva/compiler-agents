@@ -1,4 +1,4 @@
-package dominio;
+package gramatica;
 
 public class Desafio {
 

@@ -1,5 +1,7 @@
 package planejamento;
 
+import comunicacao.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class ObjetivoDeChamarObjetivo implements Objetivo {
@@ -17,17 +19,33 @@ public class ObjetivoDeChamarObjetivo implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
-        for (Crenca c : crencas)
-            // Roteiro não está pronto
-            // Sem fragmentos ou último fragmento é decisão
-            // Não tem evento
-            return true;
-        return false;
+    public boolean estadoAtual(List<Crenca> crencas) {
+        CrencaRoteiroPronto roteiroPronto = crencas.getByType(CrencaRoteiroPronto.class);
+        if (roteiroPronto != null)
+            return false;
+
+        CrencaColecaoDeFragmentos colecaoDeFragmentos = crencas.getByType(CrencaColecaoDeFragmentos.class);
+        if (colecaoDeFragmentos != null)
+            if (!colecaoDeFragmentos.vazio() && !colecaoDeFragmentos.ultimo(TipoDeFragmento.Decisao))
+                return false;
+
+        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
+        if (eventoRegistrado != null)
+            return false;
+
+        return true;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
-        return false;
+    public boolean estadoFuturo(List<Crenca> crencas) {
+        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
+
+        if (eventoRegistrado == null)
+            return false;
+
+        if (eventoRegistrado.obterTipo() != TipoDeEvento.Objetivo)
+            return false;
+
+        return true;
     }
 
 }

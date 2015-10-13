@@ -20,7 +20,7 @@ public class ObjetivoDeGerarContratempo implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
+    public boolean estadoAtual(List<Crenca> crencas) {
         for (Crenca c : crencas)
             // Evento contratempo
             // Proporção de contratempo/catastrofe <= 3
@@ -28,7 +28,7 @@ public class ObjetivoDeGerarContratempo implements Objetivo {
         return false;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
+    public boolean estadoFuturo(List<Crenca> crencas) {
         return false;
     }
 

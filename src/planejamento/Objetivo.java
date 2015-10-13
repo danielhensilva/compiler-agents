@@ -6,8 +6,8 @@ public interface Objetivo {
 
     List<Plano> obterPlanos();
 
-    boolean compativelComEstadoAtual(List<Crenca> crencas);
+    boolean estadoAtual(List<Crenca> crencas);
 
-    boolean estaEmEstadoFuturo(List<Crenca> crencas);
+    boolean estadoFuturo(List<Crenca> crencas);
 
 }

@@ -1,7 +1,7 @@
 package planejamento;
 
 import comunicacao.*;
-import dominio.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class CrencaColecaoDeFragmentos implements Crenca {
@@ -14,14 +14,33 @@ public class CrencaColecaoDeFragmentos implements Crenca {
         if (this.fragmentos == null)
             return false;
 
-        if (this.fragmentos.size() == 0)
-            return false;
-
         return true;
     }
 
     public List<Fragmento> obterFragmentos() {
         return this.fragmentos;
+    }
+
+    public boolean vazio() {
+        return this.fragmentos.size() == 0;
+    }
+
+    public boolean contem(TipoDeFragmento tipo) {
+        for (Fragmento fragmento : this.fragmentos)
+            if (fragmento.obterTipo() == tipo)
+                return true;
+
+        return false;
+    }
+
+    public boolean ultimo(TipoDeFragmento tipo) {
+        if (this.vazio())
+            return false;
+
+        if (this.fragmentos.getLastItem().obterTipo() != tipo)
+            return false;
+
+        return true;
     }
 
 }
