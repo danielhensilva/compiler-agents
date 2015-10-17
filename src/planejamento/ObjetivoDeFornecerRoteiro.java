@@ -1,5 +1,7 @@
 package planejamento;
 
+import comunicacao.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class ObjetivoDeFornecerRoteiro implements Objetivo {
@@ -17,14 +19,27 @@ public class ObjetivoDeFornecerRoteiro implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
-        for (Crenca c : crencas)
-            // Cena final foi visitada
+    public boolean estadoAtual(List<Crenca> crencas) {
+        CrencaColecaoDeFragmentos crenca = crencas.getByType(CrencaColecaoDeFragmentos.class);
+
+        if (crenca == null)
+            return false;
+
+        if (crenca.contem(TipoDeFragmento.Conclusao))
             return true;
+
         return false;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
+    public boolean estadoFuturo(List<Crenca> crencas) {
+        CrencaEventoRegistrado crenca = crencas.getByType(CrencaEventoRegistrado.class);
+
+        if (crenca == null)
+            return true;
+
+        if (crenca.obterEvento() == null)
+            return true;
+
         return false;
     }
 

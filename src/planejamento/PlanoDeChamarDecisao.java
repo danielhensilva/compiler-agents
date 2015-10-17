@@ -5,10 +5,6 @@ import utilitarios.*;
 
 public class PlanoDeChamarDecisao implements Plano {
 
-    public PlanoDeChamarDecisao() {
-
-    }
-
     public boolean aplicavel(List<Crenca> crencas) {
         return true;
     }

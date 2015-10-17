@@ -25,6 +25,11 @@ public class List<T> implements Iterable<T> {
 		return (T[])this.array.toArray();
 	}
 
+    @SuppressWarnings("unchecked")
+	public T get(int index) {
+		return (T)this.array.get(index);
+	}
+
     public void remove(T element) {
         for (T e : this.array)
             if (e.equals(element))
@@ -54,19 +59,22 @@ public class List<T> implements Iterable<T> {
 	}
 
     public <Q> Q getByType(Class<Q> target) {
-        Optional<T> element = this.array
-            .stream()
-            .filter(x -> x.getClass().isInstance(target))
-            .findFirst();
-
-        if (element.isPresent())
-            return target.cast(element.get());
+        for (T item : this.array)
+            if (target.isAssignableFrom(item.getClass()))
+                return target.cast(item);
 
         return null;
     }
 
     public int size() {
         return this.array.size();
+    }
+
+    public boolean isEmpty() {
+        if (this.array == null)
+            return true;
+
+        return this.array.isEmpty();
     }
 
     public String[] toStringArray() {

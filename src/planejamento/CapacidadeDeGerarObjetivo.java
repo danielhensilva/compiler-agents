@@ -29,6 +29,10 @@ public class CapacidadeDeGerarObjetivo implements Capacidade {
         if (c2.aplicavel(blackboard))
             crencas.add(c2);
 
+        CrencaEventoRegistrado c3 = new CrencaEventoRegistrado();
+        if (c3.aplicavel(blackboard))
+            crencas.add(c3);
+
         return crencas;
     }
 

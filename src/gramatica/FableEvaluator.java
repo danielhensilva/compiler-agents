@@ -2,7 +2,7 @@ package gramatica;
 
 import org.antlr.v4.runtime.tree.*;
 import utilitarios.*;
-import dominio.*;
+import gramatica.*;
 
 public class FableEvaluator extends FableGrammarBaseVisitor<Object> {
 

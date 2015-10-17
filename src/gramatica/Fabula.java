@@ -1,4 +1,4 @@
-package dominio;
+package gramatica;
 
 import utilitarios.*;
 
@@ -30,6 +30,11 @@ public class Fabula {
 
     public List<Conhecimento> obterConhecimento() {
         return this.conhecimentos;
+    }
+
+    @Override
+    public String toString() {
+        return "Fabula : " + this.identificador;
     }
 
 }

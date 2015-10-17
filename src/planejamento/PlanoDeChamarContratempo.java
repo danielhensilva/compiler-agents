@@ -5,10 +5,6 @@ import utilitarios.*;
 
 public class PlanoDeChamarContratempo implements Plano {
 
-    public PlanoDeChamarContratempo() {
-
-    }
-
     public boolean aplicavel(List<Crenca> crencas) {
         return true;
     }

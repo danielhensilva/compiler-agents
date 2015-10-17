@@ -1,4 +1,4 @@
-package dominio;
+package gramatica;
 
 import utilitarios.*;
 
@@ -39,4 +39,8 @@ public class Cena {
         return this.identificador;
     }
 
+    @Override
+    public String toString() {
+        return "Cena : " + this.identificador;
+    }
 }

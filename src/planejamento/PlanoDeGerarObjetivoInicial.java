@@ -1,23 +1,24 @@
 package planejamento;
 
 import comunicacao.*;
-import dominio.*;
+import gramatica.*;
 import utilitarios.*;
 
 public class PlanoDeGerarObjetivoInicial implements Plano {
 
-    public PlanoDeGerarObjetivoInicial() {
-
-    }
-
     public boolean aplicavel(List<Crenca> crencas) {
 
-        // Tem fragmento
-        CrencaColecaoDeFragmentos crenca  = crencas.getByType(CrencaColecaoDeFragmentos.class);
-        if (crenca != null || crenca.obterFragmentos().size() > 0)
+        // Tem evento do tipo objetivo
+        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
+        if (eventoRegistrado == null || eventoRegistrado.obterTipo() != TipoDeEvento.Objetivo)
             return false;
 
-        return true;
+        // Não tem nenhum fragmento disponível
+        CrencaColecaoDeFragmentos crencaFragmentos  = crencas.getByType(CrencaColecaoDeFragmentos.class);
+        if (crencaFragmentos == null || crencaFragmentos.vazio())
+            return true;
+
+        return false;
     }
 
     public void executar(Blackboard blackboard) {

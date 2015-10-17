@@ -1,5 +1,6 @@
 package planejamento;
 
+import comunicacao.*;
 import utilitarios.*;
 
 public class ObjetivoDeGerarCatastrofe implements Objetivo {
@@ -17,14 +18,22 @@ public class ObjetivoDeGerarCatastrofe implements Objetivo {
         return this.planos;
     }
 
-    public boolean compativelComEstadoAtual(List<Crenca> crencas) {
-        for (Crenca c : crencas)
-            // Evento de catástrofe
-            return true;
-        return false;
+    public boolean estadoAtual(List<Crenca> crencas) {
+        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
+        if (eventoRegistrado == null)
+            return false;
+
+        if (eventoRegistrado.obterTipo() != TipoDeEvento.Catastrofe)
+            return false;
+
+        return true;
     }
 
-    public boolean estaEmEstadoFuturo(List<Crenca> crencas) {
+    public boolean estadoFuturo(List<Crenca> crencas) {
+        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
+        if (eventoRegistrado == null)
+            return true;
+
         return false;
     }
 

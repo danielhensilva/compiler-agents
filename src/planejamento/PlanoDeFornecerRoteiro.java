@@ -6,10 +6,6 @@ import java.io.PrintWriter;
 
 public class PlanoDeFornecerRoteiro implements Plano {
 
-    public PlanoDeFornecerRoteiro() {
-
-    }
-
     public boolean aplicavel(List<Crenca> crencas) {
         return true;
     }
