@@ -19,9 +19,9 @@ public class ObjetivoDeChamarObjetivo implements Objetivo {
 
     public boolean compativelComEstadoAtual(List<Crenca> crencas) {
         for (Crenca c : crencas)
-            // Roteiro não está pronto
-            // Sem fragmentos ou último fragmento é decisão
-            // Não tem evento
+            // Roteiro não está pronto //CrençaRoteiroPronto
+            // Sem fragmentos ou último fragmento é decisão //CrençaColeçãoDeFragmentos
+            // Não tem evento // CrençaEventoRegistrado
             return true;
         return false;
     }

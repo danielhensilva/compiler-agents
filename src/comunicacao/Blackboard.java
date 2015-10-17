@@ -11,6 +11,8 @@ public class Blackboard {
 
     private Fabula fabula;
 
+    private String linguagemDaFabula;
+
     private List<Object> pilhaDeExecucao;
 
     private List<Conhecimento> conhecimentosNecessarios;
