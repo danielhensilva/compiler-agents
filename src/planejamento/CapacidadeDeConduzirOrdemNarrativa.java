@@ -42,7 +42,7 @@ public class CapacidadeDeConduzirOrdemNarrativa implements Capacidade {
         if (c3.aplicavel(blackboard))
             crencas.add(c3);
 
-        CrencaContextoExecucao c4 = new CrencaContextoExecucao();
+        CrencaContextoDeExecucao c4 = new CrencaContextoDeExecucao();
         if (c4.aplicavel(blackboard))
             crencas.add(c4);
 

@@ -10,7 +10,7 @@ public class PlanoDeGerarContratempo implements Plano {
         return true;
     }
 
-    private boolean foiAtendido(Blackboard blackboard, Conhecimento requisito) {
+    private boolean atendido(Blackboard blackboard, Conhecimento requisito) {
         for (Conhecimento adquirido : blackboard.obterConhecimentosAdquiridos())
             if (adquirido.equals(requisito))
                 return true;
@@ -18,15 +18,23 @@ public class PlanoDeGerarContratempo implements Plano {
         return false;
     }
 
+    private void adicionarNaPilhaDeExecucao(Blackboard blackboard, Object object) {
+        for (Object item : blackboard.obterPilhaDeExecucao())
+            if (item.equals(object))
+                return;
+
+        blackboard.adicionarNaPilhaDeExecucao(object);
+    }
+
     private Conhecimento primeiroRequisitoNaoAtendido(Blackboard blackboard) {
         Conhecimento conhecimento = blackboard.obterConhecimentosNecessarios().getLastItem();
-        blackboard.adicionarNaPilhaDeExecucao(conhecimento);
+        this.adicionarNaPilhaDeExecucao(blackboard, conhecimento);
 
         if (!conhecimento.contemRequisitos())
             return conhecimento;
 
         for (Conhecimento requisito : conhecimento.obterRequisitos())
-            if (!this.foiAtendido(blackboard, requisito)) {
+            if (!this.atendido(blackboard, requisito)) {
                 blackboard.adicionarConhecimentoNecessario(requisito);
                 return this.primeiroRequisitoNaoAtendido(blackboard);
             }
@@ -34,19 +42,37 @@ public class PlanoDeGerarContratempo implements Plano {
         return conhecimento;
     }
 
+    private void adicionarFragmento(Blackboard blackboard, Desafio desafio) {
+        String texto = desafio.obterTexto();
+        TipoDeFragmento tipo = TipoDeFragmento.Contratempo;
+        Fragmento fragmento = new Fragmento(texto, tipo);
+        blackboard.adicionarFragmento(fragmento);
+    }
+
+    private void adicionarFragmento(Blackboard blackboard, Conhecimento conhecimento) {
+        String texto = conhecimento.obterDescricao();
+        TipoDeFragmento tipo = TipoDeFragmento.Contratempo;
+        Fragmento fragmento = new Fragmento(texto, tipo);
+        blackboard.adicionarFragmento(fragmento);
+        blackboard.adicionarConhecimentoAdquirido(conhecimento);
+        blackboard.removerConhecimentoNecessario(conhecimento);
+    }
+
     public void executar(Blackboard blackboard) {
         Conhecimento conhecimentoAtual = this.primeiroRequisitoNaoAtendido(blackboard);
         List<Desafio> desafios = conhecimentoAtual.obterDesafios(TipoDeDesafio.Contratempo);
 
-        if (desafios != null && !desafios.isEmpty()) {
-            int index = (int)(Math.random() * desafios.size());
-
-            Desafio desafio = desafios.get(index);
-            Fragmento fragmento = new Fragmento(desafio.obterTexto(), TipoDeFragmento.Contratempo);
-
-            blackboard.adicionarFragmento(fragmento);
+        if (desafios == null || desafios.isEmpty()) {
+            this.adicionarFragmento(blackboard, conhecimentoAtual);
+            blackboard.removerDaPilhaDeExecucao();
+            blackboard.atribuirEvento(null);
+            return;
         }
 
+        int index = (int)(Math.random() * desafios.size());
+        Desafio desafio = desafios.get(index);
+        this.adicionarFragmento(blackboard, desafio);
+        this.adicionarNaPilhaDeExecucao(blackboard, desafio.obterCena());
         blackboard.atribuirEvento(null);
     }
 

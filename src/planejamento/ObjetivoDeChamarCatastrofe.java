@@ -28,11 +28,15 @@ public class ObjetivoDeChamarCatastrofe implements Objetivo {
         if (colecaoDeFragmentos == null)
             return false;
 
-        if (!colecaoDeFragmentos.ultimo(TipoDeFragmento.Objetivo))
+        if (!colecaoDeFragmentos.ultimo(TipoDeFragmento.Objetivo) && !colecaoDeFragmentos.ultimo(TipoDeFragmento.Introducao))
             return false;
 
         CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
         if (eventoRegistrado != null)
+            return false;
+
+        CrencaContextoDeExecucao contextoExecucao = crencas.getByType(CrencaContextoDeExecucao.class);
+        if (contextoExecucao == null || !contextoExecucao.contemConhecimento())
             return false;
 
         return true;

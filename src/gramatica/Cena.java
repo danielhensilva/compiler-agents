@@ -27,6 +27,16 @@ public class Cena {
         return this.associacoes;
     }
 
+    public boolean contemAssociacoes() {
+        if (this.associacoes == null)
+            return false;
+
+        if (this.associacoes.size() == 0)
+            return false;
+
+        return true;
+    }
+
     public String obterDescricao() {
         return this.descricao;
     }

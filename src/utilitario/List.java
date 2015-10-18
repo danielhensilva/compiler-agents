@@ -31,9 +31,12 @@ public class List<T> implements Iterable<T> {
 	}
 
     public void remove(T element) {
-        for (T e : this.array)
-            if (e.equals(element))
-                this.array.remove(e);
+        for (int i = 0; i < this.size(); i++) {
+            if (this.get(i).equals(element)) {
+                this.array.remove(i);
+                return;
+            }
+        }
     }
 
     public void removeFirst() {
@@ -45,14 +48,14 @@ public class List<T> implements Iterable<T> {
     }
 
 	public T getFirstItem() {
-		if (this.array.isEmpty())
+		if (this.isEmpty())
 			return null;
 
 		return this.array.get(0);
 	}
 
 	public T getLastItem() {
-		if (this.array.isEmpty())
+		if (this.isEmpty())
 			return null;
 
 		return this.array.get(this.array.size() - 1);

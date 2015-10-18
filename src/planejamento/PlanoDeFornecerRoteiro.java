@@ -14,9 +14,14 @@ public class PlanoDeFornecerRoteiro implements Plano {
         blackboard.atribuirEvento(null);
 
         try {
+
             PrintWriter writer = new PrintWriter("roteiro.txt");
+
             for (Fragmento f : blackboard.obterFragmentos())
-                writer.println(f.obterTexto());
+                if (!f.obterTexto().equals(""))
+                    writer.println(f.obterTexto());
+
+            writer.close();
 
         } catch (Exception exception) {
             exception.printStackTrace();

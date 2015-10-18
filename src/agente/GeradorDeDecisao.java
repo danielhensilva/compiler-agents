@@ -57,14 +57,14 @@ public class GeradorDeDecisao implements AgenteInteligente {
     }
 
     public void run() {
-        try {
-            while (this.ativado) {
+        while (this.ativado) {
+            try {
                 this.executar();
-                Thread.sleep(5000);
+                Thread.sleep(345);
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

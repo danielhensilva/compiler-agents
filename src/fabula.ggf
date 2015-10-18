@@ -65,7 +65,7 @@ FABULA TemperaturaMotoresResponsabilidadesDependencias (
     )
 
     CONHECIMENTO ConhecimentoLinguagemDeProgramacaoJava (
-        DESCRICAO "<ConhecimentoClasseEmJava - omitido no protótipo>"
+        DESCRICAO "<ConhecimentoLinguagemDeProgramacaoJava - omitido no protótipo>"
     )
 
     CENA CenaEntenderLinguagemJava (

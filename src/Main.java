@@ -42,12 +42,12 @@ public class Main {
     }
 
     private static AgenteInteligente[] criarAgentes() {
-        AgenteInteligente[] agentes = new AgenteInteligente[3];
+        AgenteInteligente[] agentes = new AgenteInteligente[5];
         agentes[0] = new Maestro();
         agentes[1] = new GeradorDeObjetivo();
         agentes[2] = new GeradorDeContratempo();
-        // agentes[3] = new GeradorDeCatastrofe();
-        // agentes[4] = new GeradorDeDecisao();
+        agentes[3] = new GeradorDeCatastrofe();
+        agentes[4] = new GeradorDeDecisao();
         return agentes;
     }
 
@@ -59,11 +59,12 @@ public class Main {
         for (Runnable agente : agentes)
             service.submit(agente, true);
 
-        // File f = new File("roteiro.txt");
-        // while (!f.exists() && !f.isDirectory());
+        File f = new File("roteiro.txt");
+        while (!f.exists() && !f.isDirectory())
+            Thread.sleep(1000);
 
-        // for (AgenteInteligente agente : agentes)
-            // agente.parar();
+        for (AgenteInteligente agente : agentes)
+            agente.parar();
 
         for (int i = 0; i < agentes.length; i++)
             service.take();

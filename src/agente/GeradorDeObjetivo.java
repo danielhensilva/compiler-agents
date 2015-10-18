@@ -57,14 +57,14 @@ public class GeradorDeObjetivo implements AgenteInteligente {
     }
 
     public void run() {
-        try {
-            while (this.ativado) {
-                this.executar();
-                Thread.sleep(5000);
+        while (this.ativado) {
+            try {
+                    this.executar();
+                    Thread.sleep(440);
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

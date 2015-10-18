@@ -57,14 +57,14 @@ public class GeradorDeContratempo implements AgenteInteligente {
     }
 
     public void run() {
-        try {
-            while (this.ativado) {
-                this.executar();
-                Thread.sleep(5000);
+        while (this.ativado) {
+            try {
+                    this.executar();
+                    Thread.sleep(410);
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

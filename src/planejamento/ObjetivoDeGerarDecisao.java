@@ -30,8 +30,14 @@ public class ObjetivoDeGerarDecisao implements Objetivo {
     }
 
     public boolean estadoFuturo(List<Crenca> crencas) {
-        CrencaEventoRegistrado eventoRegistrado = crencas.getByType(CrencaEventoRegistrado.class);
-        if (eventoRegistrado == null)
+        CrencaColecaoDeFragmentos fragmentos = crencas.getByType(CrencaColecaoDeFragmentos.class);
+        if (fragmentos == null)
+            return false;
+
+        if (fragmentos.vazio())
+            return false;
+
+        if (fragmentos.ultimo(TipoDeFragmento.Decisao))
             return true;
 
         return false;

@@ -59,6 +59,10 @@ public class Conhecimento {
         return this.identificador;
     }
 
+    public String obterDescricao() {
+        return this.descricao;
+    }
+
     @Override
     public String toString() {
         return "Conhecimento : " + this.identificador;

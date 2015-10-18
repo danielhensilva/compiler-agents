@@ -5,10 +5,6 @@ import utilitarios.*;
 
 public class PlanoDeIgnorarContratempo implements Plano {
 
-    public PlanoDeIgnorarContratempo() {
-
-    }
-
     public boolean aplicavel(List<Crenca> crencas) {
         return false;
     }

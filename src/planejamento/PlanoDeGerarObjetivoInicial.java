@@ -21,24 +21,35 @@ public class PlanoDeGerarObjetivoInicial implements Plano {
         return false;
     }
 
-    public void executar(Blackboard blackboard) {
+    private Cena obterCenaInicial(Blackboard blackboard) {
         Fabula fabula = blackboard.obterFabula();
 
-        Cena cenaInicial = null;
-
         for (Cena cena : fabula.obterCenas())
-            if (cena.obterTipo() == TipoDeCena.Inicial) {
-                cenaInicial = cena;
-                break;
-            }
+            if (cena.obterTipo() == TipoDeCena.Inicial)
+                return cena;
 
-        Fragmento fragmento = new Fragmento(cenaInicial.obterDescricao(), TipoDeFragmento.Introducao);
+        return null;
+    }
+
+    private void adicionarFragmento(Blackboard blackboard, Cena cena) {
+        String texto = cena.obterDescricao();
+        TipoDeFragmento tipo = TipoDeFragmento.Introducao;
+        Fragmento fragmento = new Fragmento(texto, tipo);
         blackboard.adicionarFragmento(fragmento);
+        blackboard.adicionarNaPilhaDeExecucao(cena);
+    }
 
-        for (Conhecimento conhecimento : cenaInicial.obterAssociacoes())
+    private void adicionarObjetivos(Blackboard blackboard, Cena cena) {
+        for (Conhecimento conhecimento : cena.obterAssociacoes())
             blackboard.adicionarConhecimentoNecessario(conhecimento);
+    }
 
-        blackboard.adicionarNaPilhaDeExecucao(cenaInicial);
+    public void executar(Blackboard blackboard) {
+        Cena cena = this.obterCenaInicial(blackboard);
+
+        this.adicionarFragmento(blackboard, cena);
+        this.adicionarObjetivos(blackboard, cena);
+
         blackboard.atribuirEvento(null);
     }
 

@@ -4,22 +4,16 @@ import comunicacao.*;
 import gramatica.*;
 import utilitarios.*;
 
-public class CrencaContextoExecucao implements Crenca {
+public class CrencaContextoDeExecucao implements Crenca {
 
     private Cena cena;
 
     private Conhecimento conhecimento;
 
     public boolean aplicavel(Blackboard blackboard) {
-        List<Object> pilhaDeExecucao = blackboard.obterilhaDeExecucao();
-
-        if (pilhaDeExecucao == null)
+        Object elemento = blackboard.obterDaPilhaDeExecucao();
+        if (elemento == null)
             return false;
-
-        if (pilhaDeExecucao.isEmpty())
-            return false;
-
-        Object elemento = pilhaDeExecucao.getLastItem();
 
         if (elemento instanceof Cena)
             this.cena = (Cena)elemento;

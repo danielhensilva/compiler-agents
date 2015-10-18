@@ -33,22 +33,22 @@ public class Blackboard {
             instancia = new Blackboard();
 
         for (Fragmento f : instancia.fragmentos)
-            System.out.println("### Blackboard : Fragmento : " + f.obterTexto());
+            System.out.println("+  +  +  +  +  Blackboard : Fragmento : " + f.obterTipo() + " : " + f.obterTexto());
 
         if (instancia.evento == null) {
-            System.out.println("### Blackboard : Evento : null");
+            System.out.println("+  +  +  +  +  Blackboard : Evento : null");
         } else {
-            System.out.println("### Blackboard : Evento : " + instancia.evento.obterTipo().toString());
+            System.out.println("+  +  +  +  +  Blackboard : Evento : " + instancia.evento.obterTipo().toString());
         }
 
         for (Object p : instancia.pilhaDeExecucao)
-            System.out.println("### Blackboard : PilhaDeExecucao : " + p.toString());
+            System.out.println("+  +  +  +  +  Blackboard : PilhaDeExecucao : " + p.toString());
 
         for (Conhecimento c : instancia.conhecimentosNecessarios)
-            System.out.println("### Blackboard : conhecimentosNecessarios : " + c.obterIdentificador());
+            System.out.println("+  +  +  +  +  Blackboard : conhecimentosNecessarios : " + c.obterIdentificador());
 
         for (Conhecimento c : instancia.conhecimentosAdquiridos)
-            System.out.println("### Blackboard : conhecimentosAdquiridos : " + c.obterIdentificador());
+            System.out.println("+  +  +  +  +  Blackboard : conhecimentosAdquiridos : " + c.obterIdentificador());
 
         return instancia;
     }
@@ -89,11 +89,15 @@ public class Blackboard {
         return this.pilhaDeExecucao.getLastItem();
     }
 
+    public List<Object> obterPilhaDeExecucao() {
+        return this.pilhaDeExecucao;
+    }
+
     public void adicionarConhecimentoNecessario(Conhecimento conhecimento) {
         this.conhecimentosNecessarios.add(conhecimento);
     }
 
-    public void removerConhecimentoNecesario(Conhecimento conhecimento) {
+    public void removerConhecimentoNecessario(Conhecimento conhecimento) {
         this.conhecimentosNecessarios.remove(conhecimento);
     }
 
